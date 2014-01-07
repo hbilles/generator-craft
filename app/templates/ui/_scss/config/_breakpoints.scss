@@ -1,0 +1,25 @@
+// -------------------------------------------------------------------------
+// layout (in ems)
+
+$gw-column: 4em;
+$gw-gutter: 1em;
+$gw-gutter-inline: .65em; // Removes the space between inline-blocks, which is ~1/4 of font-size
+
+// -------------------------------------------------------------------------
+// breakpoints
+
+// smallplus = 31em, 496px
+$content-width-smallplus: grid-width(6);
+$site-width-smallplus: $content-width-smallplus + (2 * $gw-gutter);
+
+// medium = 41em, 656px
+$content-width-medium: grid-width(8);
+$site-width-medium: $content-width-medium + (2 * $gw-gutter);
+
+// large = 61em, 976px
+$content-width-large: grid-width(12);
+$site-width-large: $content-width-large + (2 * $gw-gutter);
+
+// xlarge = 71em, 1136px
+$content-width-xlarge: grid-width(14);
+$site-width-xlarge: $content-width-xlarge + (2 * $gw-gutter);

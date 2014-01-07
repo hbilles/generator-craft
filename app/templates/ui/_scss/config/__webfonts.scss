@@ -1,0 +1,212 @@
+@include font-face(WebSymbols, '/ui/webfonts/WebSymbols');
+
+%font-heading {
+	font-family: "HelveticaNeue-CondensedBold", Helvetica, sans-serif;
+	font-weight: normal;
+	font-style: normal;
+}
+
+%font-sans {
+	font-family: verdana, arial, sans-serif;
+}
+
+%font-serif {
+	font-family: georgia, serif;
+}
+
+// --------------------------------------------------------------------------
+// WebSymbols
+
+%font_glyphs {
+	font-family: 'WebSymbols';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-menu { 
+	font-family: 'WebSymbols';
+	content: '\e802';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-fax { 
+	font-family: 'WebSymbols';
+	content: '\e800';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-phone { 
+	font-family: 'WebSymbols';
+	content: '\e801';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-email { 
+	font-family: 'WebSymbols';
+	content: '\e814';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-vcard { 
+	font-family: 'WebSymbols';
+	content: '\e815';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-building { 
+	font-family: 'WebSymbols';
+	content: '\e80b';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-twitter { 
+	font-family: 'WebSymbols';
+	content: '\e80f';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-facebook { 
+	font-family: 'WebSymbols';
+	content: '\e80c';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-linkedin { 
+	font-family: 'WebSymbols';
+	content: '\e80d';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-gplus { 
+	font-family: 'WebSymbols';
+	content: '\e80e';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-angle-circled-up { 
+	font-family: 'WebSymbols';
+	content: '\e809';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-angle-circled-right { 
+	font-family: 'WebSymbols';
+	content: '\e808';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-angle-circled-down { 
+	font-family: 'WebSymbols';
+	content: '\e80a';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-angle-circled-left { 
+	font-family: 'WebSymbols';
+	content: '\e807';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-up { 
+	font-family: 'WebSymbols';
+	content: '\e813';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-right { 
+	font-family: 'WebSymbols';
+	content: '\e812';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-down { 
+	font-family: 'WebSymbols';
+	content: '\e810';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-left { 
+	font-family: 'WebSymbols';
+	content: '\e811';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-up-bold { 
+	font-family: 'WebSymbols';
+	content: '\e806';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-right-bold { 
+	font-family: 'WebSymbols';
+	content: '\e805';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-down-bold { 
+	font-family: 'WebSymbols';
+	content: '\e803';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-left-bold { 
+	font-family: 'WebSymbols';
+	content: '\e804';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-plus { 
+	font-family: 'WebSymbols';
+	content: '\e817';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-minus { 
+	font-family: 'WebSymbols';
+	content: '\e818';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-cancel { 
+	font-family: 'WebSymbols';
+	content: '\e816';
+	font-weight: normal;
+	font-style: normal;
+}
+
+// --------------------------------------------------------------------------
+// Font controls
+
+// prevent FOUC for Typekit fonts
+.wf-loading {
+	visibility: hidden;
+}
+
+.wf-active {
+	visibility: visible;
+}
+

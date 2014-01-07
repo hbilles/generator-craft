@@ -1,0 +1,72 @@
+@import "compass/css3";
+@import "vendor/bourbon/bourbon";
+
+@import "config/*";
+
+body {
+	@extend %font-sans;
+	
+	//color: $color;
+	//background-color: $color;
+}
+
+#{headings()} {
+	text-align: center;
+}
+
+h1 {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+
+	font-size: 1px;
+}
+
+h2 {
+	margin: 4em 0 0;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+#content {
+	position: absolute;
+	
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+
+	margin: auto;
+
+	$logo_width: 1253;
+	$logo_height: 685;
+	$logo_ratio: $logo_height / $logo_width;
+
+	$small_width: 320px;
+	$medium_width: 480px;
+	$large_width: 790px;
+
+	$small_height: $small_width * $logo_ratio;
+	$medium_height: $medium_width * $logo_ratio;
+	$large_height: $large_width * $logo_ratio;
+	
+	width: $large_width;
+	height: $large_height;
+
+	@media ( max-width: 800px ) {
+		width: $medium_width;
+		height: $medium_height;
+	}
+
+	@media ( max-width: 480px ) {
+		width: $small_width;
+		height: $small_height;
+	}
+
+}
+
+
+// EOF

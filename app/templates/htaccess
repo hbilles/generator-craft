@@ -1,0 +1,64 @@
+<IfModule mod_rewrite.c>
+	
+	# --------------------------------------------------------------------------
+	# General directives
+
+	Options -Indexes
+	RewriteEngine On
+
+	# ---------------------------------------------------------------------------
+	# Remove www from the URL
+
+	RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+	RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+	# --------------------------------------------------------------------------
+	# Remove trailing slashes from URLs
+
+	RewriteCond $1 !\.(gif|jpe?g|png|css|js)$ [NC]
+	RewriteCond %{REQUEST_METHOD} !=POST
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^(.+)/$ http://%{HTTP_HOST}/$1 [R=301,L]
+
+	# --------------------------------------------------------------------------
+	# Force trailing slashes in URLs
+
+	#RewriteCond $1 !\.(gif|jpe?g|png|css|js)$ [NC]
+	#RewriteCond %{REQUEST_METHOD} !=POST
+	#RewriteCond %{REQUEST_FILENAME} !-f
+	#RewriteCond %{REQUEST_FILENAME} !-d
+	#RewriteRule ^(.+[^/])$ /$1/ [R=301,L]
+
+	# --------------------------------------------------------------------------
+	# Send would-be 404 requests to Craft
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_URI} !^/(favicon\.ico|apple-touch-icon.*\.png)$ [NC]
+	RewriteRule (.+) index.php?p=$1 [QSA,L]
+
+	# ---------------------------------------------------------------------------
+	# Adaptive images
+
+	Options +SymLinksIfOwnerMatch
+	RewriteCond %{REQUEST_URI} !ui
+	RewriteRule \.(?:jpe?g|gif|png)$ ui/adaptive-images.php
+
+	# ---------------------------------------------------------------------------
+	# Invoke download process for file types
+
+	AddType application/octet-stream vcf
+	AddType application/octet-stream zip
+
+	# ---------------------------------------------------------------------------
+	# Remove IE image toolbar
+
+	<FilesMatch "\.(html|htm|php)$">
+	Header set imagetoolbar "no"
+	</FilesMatch>
+
+	# ---------------------------------------------------------------------------
+	# REDIRECTS
+
+</IfModule>

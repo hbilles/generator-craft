@@ -1,0 +1,36 @@
+// --------------------------------------------------------------------------
+// links
+
+a {
+	text-decoration: none;
+
+	&:link {
+		color: $color-link;
+
+		& #{headings()} {
+			color: $color-link;
+		}
+	}
+
+	&:visited {
+		color: $color-link;
+
+		& #{headings()} {
+			color: $color-link;
+		}
+	}
+
+	&:hover,
+	&:visited:hover {
+		color: $color-link-hover;
+
+		& #{headings()} {
+			color: $color-link-hover;
+		}
+	}
+}
+
+a img {
+	border: none;
+	text-decoration: none;
+}

@@ -1,0 +1,55 @@
+// --------------------------------------------------------------------------
+// html
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	@extend %font-sans;
+	//color: $color;
+	//background-color: $color;
+}
+
+
+// --------------------------------------------------------------------------
+// content
+
+p {
+	margin: 0 0 2.25em;
+}
+
+ul {
+	margin: 0 0 2.25em;
+}
+
+li {
+	margin: 0;
+}
+
+p, li {
+	font-size: em($body-small);
+	line-height: 1.6875;
+
+	li {
+		font-size: 1em;
+	}
+}
+
+figure {
+	margin: 0 0 2.25em;
+	
+	img {
+		max-width: 100%;
+	}
+}
+
+
+// --------------------------------------------------------------------------
+// medium styles
+
+@media screen and (min-width: $site-width-medium) {
+
+	
+}

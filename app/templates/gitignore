@@ -1,0 +1,12 @@
+public/images/cache/*
+!public/images/cache/index.html
+
+.sass-cache/*
+public/ui/.sass-cache/*
+
+node_modules/*
+
+public/ui/bower_components/*
+
+*.sublime-project
+*.sublime-workspace
