@@ -1,5 +1,4 @@
-@import "compass/css3";
-@import "vendor/bourbon/bourbon";
+@import "../bower_components/bourbon/dist/bourbon";
 
 @import "config/*";
 
@@ -10,7 +9,12 @@ body {
 	//background-color: $color;
 }
 
-#{headings()} {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	text-align: center;
 }
 

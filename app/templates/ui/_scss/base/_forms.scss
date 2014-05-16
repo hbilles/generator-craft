@@ -72,7 +72,7 @@ select {
 	width: 99%;
 	max-width: 30em;
 
-	@include border-radius(0);
+	border-radius: 0;
 }
 
 .note {
@@ -95,7 +95,7 @@ select {
 	color: $white;
 	background-color: $orange;
 
-	@include border-radius($border-radius-small);
+	border-radius: $border-radius-small;
 
 	cursor: pointer;
 	overflow: visible;

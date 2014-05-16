@@ -130,15 +130,7 @@ CraftGenerator.prototype.app = function app() {
   this.copy('gitignore', '.gitignore');
   
   this.template('_package.json', 'package.json');
-  
-  /* Bower seems to be more trouble than it's worth for now.
-   * Pulling down the entire code repo for each dependency,
-   * then having to delete extra code manually so as to not
-   * push it all up to staging or production seems sub-optimal.
-   * This generator will keep the specific file dependencies
-   * in the generator repo and move them in place instead.
-   */
-  //this.template('_bower.json', 'bower.json');
+  this.template('_bower.json', 'bower.json');
 };
 
 CraftGenerator.prototype.projectfiles = function projectfiles() {

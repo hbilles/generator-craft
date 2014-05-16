@@ -48,7 +48,8 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
-          style: 'compressed'
+          style: 'compressed',
+          require: 'sass-globbing'
         },
         files: {
           'public/ui/css/styles.css': 'public/ui/_scss/styles.scss',
@@ -71,7 +72,7 @@ module.exports = function(grunt) {
       },
       sass: {
         files: ['public/ui/_scss/*.scss', 'public/ui/_scss/config/*.scss', 'public/ui/_scss/base/*.scss', 'public/ui/_scss/modules/*.scss'],
-        tasks: ['compass'],
+        tasks: ['sass'],
         options: {
           livereload: true
         }
