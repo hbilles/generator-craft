@@ -5,8 +5,8 @@ var curl = require('curlrequest');
 var spawn = require('child_process').spawn;
 var yeoman = require('yeoman-generator');
 
-var craftVersionMinor = '1.3',
-    craftVersion = craftVersionMinor + '.2462',
+var craftVersionMinor = '2.0',
+    craftVersion = craftVersionMinor + '.2541',
     craftZipFile = 'Craft-' + craftVersion + '.zip';
 
 
