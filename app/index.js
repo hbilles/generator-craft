@@ -113,7 +113,7 @@ CraftGenerator.prototype.cleanupCraft = function cleanupCraft() {
 
   console.log('Cleaning up after unzipping Craft...');
 
-  var cleanup = spawn('rm', ['-rf', craftZipFile, 'craft/templates/_layout.html', 'craft/templates/news']);
+  var cleanup = spawn('rm', ['-rf', craftZipFile, 'craft/templates', 'public/index.php']);
 
   cleanup.stderr.on('data', function (data) {
     console.log('Cleanup error: ' + data);
@@ -146,8 +146,9 @@ CraftGenerator.prototype.projectfiles = function projectfiles() {
   this.template('_general.php', 'craft/config/general.php');
 
   this.copy('htaccess', 'public/.htaccess');
+  this.copy('index.php', 'public/index.php');
+
   this.mkdir('public/images/cache');
   this.directory('ui', 'public/ui');
 
-  this.directory('templates', 'craft/templates');
 };

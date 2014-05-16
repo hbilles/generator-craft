@@ -2,10 +2,11 @@
   "name": "<%= craftDomainName %>",
   "version": "0.5.0",
   "dependencies": {
-  	"jquery": "~1.9",
-  	"requirejs": "~2.1.9",
+  	"jquery": "~1.11",
+  	"requirejs": "~2.1.11",
   	"html5shiv": "~3.7.0",
-  	"imagesloaded": "~3.1.0"
+  	"imagesloaded": "~3.1.6",
+  	"bourbon": "~4.0"
   }
 }
 

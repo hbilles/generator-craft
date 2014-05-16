@@ -1,0 +1,62 @@
+<!doctype html>
+
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>{% if metaTitle is defined %}{{ metaTitle }} {{ globalVars.titleBullet }} {% endif %}{{ siteName }}{% if homeTitle is defined %} {{ globalVars.titleBullet }} {{ homeTitle }}{% endif %}</title>
+	{% if metaDescription is defined %}<meta name="description" content="{{ metaDescription }}">{% endif %}
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="author" content="{{ siteName }}">
+
+	<link rel="Shortcut Icon" href="/favicon.ico">
+	<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png">
+
+	{% if canonicalUrl is defined %}<link rel="canonical" href="{{ canonicalUrl }}">{% endif %}
+
+	{% include '_includes/_socialMediaHead' %}
+	{% include '_includes/_stylesheets' with ({ cssVersion: '2.5' }) %}
+	{% include '_includes/_scripts' with ({ jsVersion: '2.5' }) %}
+</head>
+
+<body itemscope itemtype="http://schema.org/{% if pageSchema is defined %}{{ pageSchema }}{% else %}WebPage{% endif %}">
+
+<div id="site">
+
+	<header id="header" itemscope itemtype="http://schema.org/WPHeader">
+		<div class="inner">
+			<h1 id="logo"><a href="{{ siteUrl }}" title="{{ globalVars.homeLinkTitle }}"><img src="/ui/img/logo.png" alt="{{ siteName }}"></a></h1>
+			<p class="jump"><a href="#menu" title="Jump to navigation menu">Menu</a></p>
+		</div>
+	</header>
+
+	<section id="content"{% if contentClass is defined %} class="{{ contentClass }}"{% endif %} itemprop="mainContentOfPage">
+		{% block content %}
+		{% endblock %}
+	</section>
+
+	{% include '_includes/_menu' %}
+
+	<footer class="footer" id="meta" itemscope itemtype="http://schema.org/WPFooter">
+		<div class="inner">
+			{% include '_includes/_footerNewsletter' %}
+		</div>
+	</footer>
+
+	<footer class="footer" id="fineprint">
+		<div class="inner">
+			<p class="copyright"><span>Copyright &copy; {{ now.format('Y') }} {{ siteName }}.</span> <span>All Rights Reserved.</span></p>
+			<p class="credits"><a href="http://line58.com" title="Visit the Line 58 website"><span>Branding and Web Design by</span> <span>Line 58</span></a></p>
+		</div>
+	</footer>
+
+</div>
+
+{% include '_includes/_googleAnalytics' %}
+
+</body>
+</html>

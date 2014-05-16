@@ -12,8 +12,13 @@ requirejs.config({
 		'imagesloaded': './vendor/imagesloaded',
 		'plugins': './plugins',
 		'snippets': './snippets',
+		'variables': './variables',
 		'leaflet': '//cdn.leafletjs.com/leaflet-0.7/leaflet',
-		'mapbox': '//api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox'
+		'mapbox': '//api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox',
+		// YouTube URL doesn't work with requirejs due to not having a 'js' extension
+		// So we append '?dummy=' query parameter to avoid breaking the URL
+		'youtubeAPI': '//www.youtube.com/iframe_api?dummy=',
+		'vimeoAPI': '//a.vimeocdn.com/js/froogaloop2.min'
 	},
 	// shim defines dependencies for the jquery
 	// plugins and other non-AMD libraries without
@@ -25,15 +30,24 @@ requirejs.config({
 		'owl.carousel': {
 			deps: ['jquery']
 		},
+		'jquery.fitvids': {
+			deps: ['jquery']
+		},
 		'jquery.validate': {
 			deps: ['jquery']
 		},
-		'jquery.fitvids': {
-			deps: ['jquery']
+		'jquery.validate.additional': {
+			deps: ['jquery', 'jquery.validate']
 		},
 		'mapbox': {
 			deps: ['leaflet'],
 			exports: 'L'
+		},
+		'youtubeAPI': {
+			exports: 'YT'
+		},
+		'vimeoAPI': {
+			exports: 'Froogaloop'
 		}
 	}
 });
@@ -51,12 +65,15 @@ requirejs([
 	'plugins/jquery.fitvids',
 	'plugins/owl.carousel',
 	'plugins/jquery.validate',
-	'snippets/development',
-	'snippets/debug',
+	'plugins/jquery.validate.additional',
 	'snippets/menu',
+	'snippets/setValidation',
+	'snippets/initValidation',
 	'snippets/fitVids',
 	'snippets/owlCarousel',
-	//'snippets/linkTracking',
-	'snippets/validateForm',
-	'snippets/map'
+	//'snippets/trackLinks',
+	//'snippets/trackVideos',
+	'snippets/mapboxMap',
+	'snippets/devLiveReload',
+	'snippets/devDebug',
 ]);

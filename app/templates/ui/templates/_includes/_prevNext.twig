@@ -1,0 +1,11 @@
+{% set params = {
+    section: mySection
+} %}
+
+{% set prevEntry = entry.getPrev(params) %}
+{% set nextEntry = entry.getNext(params) %}
+
+<nav class="prev-next">
+	<span class="prev">{% if prevEntry %}<a href="{{ prevEntry.url }}" title="{{ prevEntry.title }}">{{ prevLabel }}</a>{% endif %}</span>
+	<span class="next">{% if nextEntry %}<a href="{{ nextEntry.url }}" title="{{ nextEntry.title }}">{{ nextLabel }}</a>{% endif %}</span>
+</nav>

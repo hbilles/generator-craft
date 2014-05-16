@@ -1,0 +1,20 @@
+{% if entry.videoUrl %}
+<figure class="video{% if videoClass is defined %} {{ videoClass }}{% endif %}" itemprop="video">
+	{% for segment in entry.videoUrl | split('/') %}
+		{% if segment matches '{youtu}' %} {# omit 'be' at end to include URL shortener version #}
+			{% set videoEmbed = 'https://www.youtube.com/embed/' %}
+		{% endif %}
+
+		{% if segment matches '{vimeo}' %}
+			{% set videoEmbed = 'https://player.vimeo.com/video/' %}
+		{% endif %}
+
+		{% if loop.last %}
+			{% set videoId = segment %}
+			<iframe width='{{ width }}' height='{{ height }}' src='{{ videoEmbed }}{{ videoId }}' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowfullscreen></iframe>
+		{% endif %}
+	{% endfor %}
+
+	{% if entry.caption %}<figcaption>{{ entry.caption }}</figcaption>{% endif %}
+</figure>
+{% endif %}

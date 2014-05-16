@@ -10,15 +10,12 @@
 return array(
 	'*' => array(
 		'defaultImageQuality'	=> 80,
-
 		'omitScriptNameInUrls' => true,
-
-		'generateTransformsAfterPageLoad' => false
+		'generateTransformsAfterPageLoad' => false,
 	),
 
 	'<%= craftDomainName %>.dev' => array(
 		'devMode'				=> true,
-		
 		'environmentVariables'	=> array(
 			'siteUrl' => 'http://<%= craftDomainName %>.dev'
 		)
@@ -26,15 +23,12 @@ return array(
 
 	'<%= craftDomainName %>.<%= craftStaging %>' => array(
 		'devMode'				=> true,
-		
 		'environmentVariables'	=> array(
 			'siteUrl' => 'http://<%= craftDomainName %>.<%= craftStaging %>'
 		)
 	),
 
 	'<%= craftDomainName %>.<%= craftProductionTLD %>' => array(
-		'devMode'				=> false,
-		
 		'environmentVariables'	=> array(
 			'siteUrl' => 'http://<%= craftDomainName %>.<%= craftProductionTLD %>'
 		)

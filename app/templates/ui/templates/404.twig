@@ -1,0 +1,12 @@
+{% extends '_layouts/main' %}
+
+{% set metaTitle = error404Page.heading %}
+
+{% block content %}
+<section class="section" id="notifications">
+	<div class="inner">
+		<h1>{{ error404Page.heading }}</h1>
+		{{ error404Page.copy | markdown }}
+	</div>
+</section>
+{% endblock %}

@@ -45,14 +45,15 @@ module.exports = function(grunt) {
         }
       }
     },
-    compass: {
-      compile: {
+    sass: {
+      dist: {
         options: {
-          require: 'sass-globbing',
-          sassDir: 'public/ui/_scss',
-          cssDir: 'public/ui/css',
-          outputStyle: 'compressed',
-          noLineComments: false
+          style: 'compressed'
+        },
+        files: {
+          'public/ui/css/styles.css': 'public/ui/_scss/styles.scss',
+          'public/ui/css/offline.css': 'public/ui/_scss/offline.scss',
+          'public/ui/css/ie.css': 'public/ui/_scss/ie.scss'
         }
       }
     },
@@ -82,9 +83,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
-  grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-sass');
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'requirejs', 'compass']);
+  grunt.registerTask('default', ['jshint', 'requirejs', 'sass']);
 
 };

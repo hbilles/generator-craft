@@ -8,5 +8,4 @@ node_modules/*
 
 public/ui/bower_components/*
 
-*.sublime-project
 *.sublime-workspace

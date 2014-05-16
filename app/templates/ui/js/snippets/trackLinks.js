@@ -7,7 +7,8 @@ define(['jquery'], function($) {
 
 	// Define Regular Expression pattern for phone and email links
 	var phoneLinkRegex = /^tel\:/,
-		emailLinkRegex = /^mailto\:/;
+		emailLinkRegex = /^mailto\:/,
+		jumpLinkRegex  = /^#/;
 
 	// Loop through all links on the page.
 	$('a').each(function() {
@@ -19,27 +20,35 @@ define(['jquery'], function($) {
 		if(linkTarget.match(phoneLinkRegex)) {
 			link.attr('data-link-type', 'telephone');
 		} else if(linkTarget.match(emailLinkRegex)) {
-			link.attr('data-link-type', 'email')
+			link.attr('data-link-type', 'email');
+		} else if(linkTarget.match(jumpLinkRegex)) {
+			link.attr('data-link-type', 'jump');
 		}
 	});
 
 	// Tag all external links
-	$('a').not('[data-link-type="telephone"], [data-link-type="email"]').filter(function() {
+	$('a').not('[data-link-type="telephone"], [data-link-type="email"], [data-link-type="jump"]').filter(function() {
 		return this.hostname && this.hostname !== location.hostname;
 	}).attr('data-link-type', 'external');
 
 	// Tag the rest as internal links
-	$('a').not('[data-link-type="telephone"], [data-link-type="email"], [data-link-type="external"]').attr('data-link-type', 'internal');
+	$('a').not('[data-link-type="telephone"], [data-link-type="email"], [data-link-type="jump"], [data-link-type="external"]').attr('data-link-type', 'internal');
 
 	// Attach IDs of parent containers to links
 	$('#header a').attr('data-parent-id', '#header');
 	$('#content a').attr('data-parent-id', '#content');
 	$('#menu a').attr('data-parent-id', '#menu');
-	$('#footer a').attr('data-parent-id', '#footer');
+	$('.footer a').attr('data-parent-id', '.footer');
 
 	// Define function to push GA Event
 	var pushEvent = function(category, link, parentID) {
-		_gaq.push(['_trackEvent', category, link, 'Parent ID: ' + parentID ]);
+		// Test which version of Google Analytics is running and
+		// execute the appropriate tracking call.
+		if (typeof _gaq === 'function') {
+			_gaq.push(['_trackEvent', category, link, 'Parent ID: ' + parentID ]);
+		} else if (typeof ga === 'function') {
+			ga('send', 'event', category, link, 'Parent ID: ' + parentID);
+		}
 	}
 
 

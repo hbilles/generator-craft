@@ -1,10 +1,43 @@
 /*!
- * imagesLoaded v3.1.0
+ * imagesLoaded v3.1.6
  * JavaScript is all like "You images are done yet or what?"
  * MIT License
  */
 
-( function( window ) {
+( function( window, factory ) { 'use strict';
+  // universal module definition
+
+  /*global define: false, module: false, require: false */
+
+  if ( typeof define === 'function' && define.amd ) {
+    // AMD
+    define( [
+      'eventEmitter/EventEmitter',
+      'eventie/eventie'
+    ], function( EventEmitter, eventie ) {
+      return factory( window, EventEmitter, eventie );
+    });
+  } else if ( typeof exports === 'object' ) {
+    // CommonJS
+    module.exports = factory(
+      window,
+      require('eventEmitter'),
+      require('eventie')
+    );
+  } else {
+    // browser global
+    window.imagesLoaded = factory(
+      window,
+      window.EventEmitter,
+      window.eventie
+    );
+  }
+
+})( this,
+
+// --------------------------  factory -------------------------- //
+
+function factory( window, EventEmitter, eventie ) {
 
 'use strict';
 
@@ -45,9 +78,7 @@ function makeArray( obj ) {
   return ary;
 }
 
-// --------------------------  -------------------------- //
-
-function defineImagesLoaded( EventEmitter, eventie ) {
+  // -------------------------- imagesLoaded -------------------------- //
 
   /**
    * @param {Array, Element, NodeList, String} elem
@@ -106,6 +137,11 @@ function defineImagesLoaded( EventEmitter, eventie ) {
         this.addImage( elem );
       }
       // find children
+      // no non-element nodes, #143
+      var nodeType = elem.nodeType;
+      if ( !nodeType || !( nodeType === 1 || nodeType === 9 || nodeType === 11 ) ) {
+        continue;
+      }
       var childElems = elem.querySelectorAll('img');
       // concat childElems to filterFound array
       for ( var j=0, jLen = childElems.length; j < jLen; j++ ) {
@@ -160,7 +196,7 @@ function defineImagesLoaded( EventEmitter, eventie ) {
     var _this = this;
     setTimeout( function() {
       _this.emit( 'progress', _this, image );
-      if ( _this.jqDeferred ) {
+      if ( _this.jqDeferred && _this.jqDeferred.notify ) {
         _this.jqDeferred.notify( _this, image );
       }
     });
@@ -295,23 +331,5 @@ function defineImagesLoaded( EventEmitter, eventie ) {
   // -----  ----- //
 
   return ImagesLoaded;
-}
 
-// -------------------------- transport -------------------------- //
-
-if ( typeof define === 'function' && define.amd ) {
-  // AMD
-  define( [
-      'EventEmitter', // =modified by HB 01/07/14
-      'eventie' // =modified by HB 01/07/14
-    ],
-    defineImagesLoaded );
-} else {
-  // browser global
-  window.imagesLoaded = defineImagesLoaded(
-    window.EventEmitter,
-    window.eventie
-  );
-}
-
-})( window );
+});
