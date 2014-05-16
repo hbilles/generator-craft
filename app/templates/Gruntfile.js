@@ -41,7 +41,7 @@ module.exports = function(grunt) {
           baseUrl: 'public/ui/js',
           mainConfigFile: 'public/ui/js/config.js',
           name: 'config',
-          out: 'public/ui/js/build/config.js'
+          out: 'public/ui/js/build/v1.0.js'
         }
       }
     },

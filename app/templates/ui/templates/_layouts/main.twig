@@ -19,8 +19,8 @@
 	{% if canonicalUrl is defined %}<link rel="canonical" href="{{ canonicalUrl }}">{% endif %}
 
 	{% include '_includes/_socialMediaHead' %}
-	{% include '_includes/_stylesheets' with ({ cssVersion: '2.5' }) %}
-	{% include '_includes/_scripts' with ({ jsVersion: '2.5' }) %}
+	{% include '_includes/_stylesheets' with ({ cssVersion: '1.0' }) %}
+	{% include '_includes/_scripts' with ({ jsVersion: '1.0' }) %}
 </head>
 
 <body itemscope itemtype="http://schema.org/{% if pageSchema is defined %}{{ pageSchema }}{% else %}WebPage{% endif %}">
