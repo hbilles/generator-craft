@@ -1,0 +1,105 @@
+// --------------------------------------------------------------------------
+// =section (basic content building blocks)
+
+.section {
+
+	&:nth-child(odd) {
+		//background-color: $off-white;
+	}
+}
+
+.section-intro {
+	text-align: center;
+
+	.section-in {
+		@include media($medium) {
+			padding: 6em 0;
+		}
+	}
+}
+
+.section-in {
+	@include outer-container;
+
+	margin: 0 1em;
+	padding: 2em 0;
+
+	& > *:first-child {
+		margin-top: 0;
+	}
+
+	& > *:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.section-hdr {
+	margin: 0 0 1.625em;
+	text-align: center;
+	border-bottom: 3px solid;
+}
+
+// applied to container for actual button
+.section-button {
+	text-align: center;
+}
+
+.section-ftr {
+
+}
+
+.section-subHeading {
+	margin: 0 0 1.5em;
+	@include font-sans();
+	text-transform: uppercase;
+	font-size: em($heading-3-small);
+	letter-spacing: 1px;
+	
+	color: $light-grey;
+}
+
+.section-summary {
+	text-align: center;
+
+	p,
+	li {
+		font-size: em($summary-small);
+		font-weight: 600;
+
+		@media screen and (min-width: $site-width-medium) {
+			font-size: em($summary-medium);
+		}
+
+		@media screen and (min-width: $site-width-large) {
+			font-size: em($summary-large);
+		}
+	}
+}
+
+
+// --------------------------------------------------------------------------
+// medium styles
+
+@media screen and (min-width: $site-width-medium) {
+
+	.section-in {
+		width: $content-width-medium;
+		margin: 0 auto;
+		padding: 3em 0;
+	}
+
+	.section-subHeading {
+		margin: 0 0 1.5em;
+		font-size: em($heading-3-medium);
+	}
+}
+
+// --------------------------------------------------------------------------
+// large styles
+
+@media screen and (min-width: $site-width-large) {
+
+	.section-in {
+		width: $content-width-large;
+	}
+}

@@ -1,8 +1,0 @@
-{
-  "name": "<%= craftDomainName %>",
-  "version": "0.6.1",
-  "devDependencies": {
-  	"bourbon": "~4.0"
-  }
-}
-

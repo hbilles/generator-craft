@@ -1,0 +1,135 @@
+// --------------------------------------------------------------------------
+// html
+
+* {
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	@include font-sans();
+	color: $color-text;
+}
+
+
+// --------------------------------------------------------------------------
+// content
+
+p {
+	margin: 0 0 1.7em;
+}
+
+ul {
+	margin: 0 0 1.7em;
+
+	ul {
+		margin: 0;
+	}
+}
+
+li {
+	margin: 0 0 .85em;
+}
+
+p, li {
+	font-size: em($bump-small);
+	line-height: 1.5;
+
+	p, li {
+		font-size: 1em;
+	}
+
+	@media screen and (min-width: $site-width-medium) {
+		font-size: em($bump-medium);
+
+		p, li {
+			font-size: 1em;
+		}
+	}
+
+	@media screen and (min-width: $site-width-large) {
+		font-size: em($body-large);
+
+		p, li {
+			font-size: 1em;
+		}
+	}
+}
+
+figure {
+	margin: 0 0 1.7em;
+	
+	img {
+		width: 100%;
+	}
+}
+
+figcaption {
+	margin: .5rem 0 0;
+
+	color: $medium-grey;	
+	font-size: rem($fineprint-small);
+	text-align: center;
+
+	@include media($medium) {
+		font-size: rem($fineprint-large)
+	}
+
+	p {
+		font-size: 1em;
+		margin: 0;
+	}
+}
+
+blockquote {
+	margin: 2em 0;
+	padding: 1.5em 0 .25em;
+	quotes: '“' '”' '‘' '’';
+
+	@include font-serif(400, italic);
+	text-align: center;
+
+	p {
+		margin: 0 0 1em;
+		padding: 0 7%;
+		font-size: em($bump-small);
+		line-height: 1.6;
+
+		@media screen and (min-width: $site-width-medium) {
+			font-size: em($bump-medium);
+			padding: 0 5%;
+		}
+
+		@media screen and (min-width: $site-width-large) {
+			font-size: em($bump-large);
+			padding: 0 7%;
+		}
+	}
+
+	.source {
+		@include font-sans();
+		font-size: em($fineprint-small);
+		font-style: normal;
+
+		@media screen and (min-width: $site-width-medium) {
+			font-size: em($body-small);
+		}
+	}
+
+	.author {
+		@include font-sans-alt(900);
+		display: block;
+	}
+}
+
+address {
+	font-style: normal;
+}

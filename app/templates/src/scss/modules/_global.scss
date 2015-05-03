@@ -1,0 +1,134 @@
+// --------------------------------------------------------------------------
+// =global styles
+
+/*
+.row {
+	@include clearfix;
+
+	@media screen and (min-width: $site-width-medium) {
+		width: 102%;
+		margin-left: -2%;
+	}
+}
+*/
+
+.more {
+	font-style: italic;
+}
+
+.go {
+	&:after {
+		@extend %icon-right;
+		padding-left: .5rem;
+	}
+}
+
+.ext {
+	&:after {
+		@extend %icon-external;
+		padding-left: .5rem;
+	}
+}
+
+// --------------------------------------------------------------------------
+// =backgrounds
+
+%bg-navyBlue {
+	background-color: $navy-blue;
+	color: $off-white;
+
+	a {
+		&:hover,
+		&:visited:hover {
+			color: $white;
+		}
+	}
+}
+
+.bg-navyBlue {
+	@extend %bg-navyBlue;
+}
+
+%bg-blue {
+	background-color: $blue;
+	color: $off-white;
+
+	a {
+		&:link,
+		&:visited {
+			color: tint($color-link, 20%);
+		}
+
+		&:hover,
+		&:visited:hover {
+			color: $white;
+		}
+	}
+
+	.button {
+		&:link,
+		&:visited {
+			color: $white;;
+		}
+
+		&:hover,
+		&:visited:hover {
+			color: $blue;
+			background-color: $white;
+		}
+	}
+}
+
+.bg-blue {
+	@extend %bg-blue;
+}
+
+%bg-lightBlue {
+	background-color: $light-blue;
+	color: $off-white;
+
+	a {
+		&:link,
+		&:visited {
+			color: tint($color-link, 30%);
+		}
+
+		&:hover,
+		&:visited:hover {
+			color: $white;
+		}
+	}
+
+	.button {
+		&:link,
+		&:visited {
+			color: $white;;
+		}
+
+		&:hover,
+		&:visited:hover {
+			color: $blue;
+			background-color: $white;
+		}
+	}
+}
+
+.bg-lightBlue {
+	@extend %bg-lightBlue;
+}
+
+%bg-cream {
+	background-color: $cream;
+}
+
+.bg-cream {
+	@extend %bg-cream;
+}
+
+%bg-lightCream {
+	background-color: $light-cream;
+}
+
+.bg-lightCream {
+	@extend %bg-lightCream;
+}

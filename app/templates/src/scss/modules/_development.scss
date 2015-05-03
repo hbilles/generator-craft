@@ -1,0 +1,35 @@
+// --------------------------------------------------------------------------
+// =development (do not leave in production!)
+
+// allow team to note problems & issues
+code {
+	display: none;
+	padding: 1em;
+	text-align: center;
+	background: pink;
+	color: #ff0000;
+}
+
+.showTodos {
+	code {
+		display: block;
+	}
+}
+
+#toggleTodos {
+	position: fixed;
+	bottom: 1em;
+	right: .5em;
+
+	padding: .25em .5em;
+
+	font-family: monospace;
+	font-size: 1.25em;
+
+	color: #ff0000;
+	background-color: rgba(255, 0, 0, .1);
+
+	&:hover {
+		cursor: pointer;
+	}
+}

@@ -1,7 +1,7 @@
 define(['jquery'], function($) {
 
 	// Only run when in development environment
-	if (window.location.host === '<%= craftDomainName %>.dev') {
+	if (window.location.host === '<%= domainName %>.dev') {
 
 		var site = $('#site'),
 			script = '<script src="//localhost:35729/livereload.js"><\/script>';

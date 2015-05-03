@@ -1,0 +1,50 @@
+@import "../../node_modules/node-bourbon/assets/stylesheets/bourbon";
+@import "config/grid-settings.scss";
+@import "../../node_modules/node-neat/node_modules/bourbon-neat/app/assets/stylesheets/neat";
+
+@import "config/__webfonts.scss";
+@import "config/breakpoints.scss";
+@import "config/colors.scss";
+@import "config/font-sizes.scss";
+
+
+// --------------------------------------------------------------------------
+// IE 9 & below
+
+.lt-ie10 {
+
+	.featured-first,
+	.featured-second {
+		a {
+			&:link,
+			&:visited {
+				@media screen and (min-width: $site-width-medium) {
+
+					.featured-figure,
+					.featured-placeholder {
+						&:after {
+							
+							background-color: rgba(0, 0, 0, .3);
+							//@include linear-gradient( top, rgba(255, 255, 255, .1) 0%, rgba(40, 40, 40, .2) 35%, rgba(0, 0, 0, .8) 100% );
+						}
+					}
+				}
+			}
+
+			&:hover,
+			&:visited:hover {
+				@media screen and (min-width: $site-width-medium) {
+
+					.featured-figure,
+					.featured-placeholder {
+						&:after {
+							
+							background-color: rgba(0, 0, 0, .1);
+							//@include linear-gradient( top, rgba(255, 255, 255, .1) 0%, rgba(40, 40, 40, .2) 35%, rgba(0, 0, 0, .8) 100% );
+						}
+					}
+				}
+			}
+		}
+	}
+}

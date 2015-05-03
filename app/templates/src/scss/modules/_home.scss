@@ -1,0 +1,17 @@
+// --------------------------------------------------------------------------
+// =home
+
+.home-copy {
+	margin: 0 0 2.5em;
+}
+
+.home {
+	.section-hdr {
+		.section-heading {
+			@media screen and (min-width: $site-width-large) {
+				margin-left: 1em;
+				margin-right: 1em;
+			}
+		}
+	}
+}

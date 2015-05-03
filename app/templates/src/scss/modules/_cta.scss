@@ -1,0 +1,99 @@
+// --------------------------------------------------------------------------
+// =cta
+
+.cta {
+	text-align: center;
+}
+
+div.cta {
+	margin: 0 0 1.5em;
+	padding: 1em;
+
+	@include media($medium) {
+		padding: 2em;
+	}
+}
+
+.cta-hasForm {
+	@include media($large) {
+		text-align: left;
+	}
+
+	.cta-content {
+		@include media($large) {
+			float: left;
+			width: 40%;
+		}
+	}
+
+	h2 {
+		@include media($large) {
+			text-align: left;
+		} 
+	}
+}
+
+.cta-form {
+	max-width: 30em; // matches max-width on form inputs
+	margin-left: auto;
+	margin-right: auto;
+
+	//text-align: left;
+
+	@include media($large) {
+		float: right;
+		width: 48%;
+	}
+}
+
+.cta-heading {
+	//font-size: em($summary-small);
+	//margin-bottom: .25em;
+	margin: .25em 0;
+
+	@media screen and (min-width: $site-width-medium) {
+		//font-size: em($summary-medium);
+	}
+
+	@media screen and (min-width: $site-width-large) {
+		margin: 0 0 .5em;
+	}
+}
+
+.cta-text {
+	font-style: italic;
+}
+
+.cta-company,
+.cta-phone {
+	@media screen and (min-width: $site-width-medium) {
+		display: inline-block;
+		width: 14.4em;
+		margin-left: .4em;
+		margin-right: .4em;
+	}
+
+	@media screen and (min-width: $site-width-large) {
+		display: inline-block;
+		width: 48%;
+	}
+}
+
+.cta-company {
+	@media screen and (min-width: $site-width-large) {
+		margin-left: 0;
+		margin-right: 3.2%;
+	}
+}
+
+.cta-phone {
+	@media screen and (min-width: $site-width-large) {
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+
+.cta-button {
+	margin: 2.5em 0 1.5em;
+}
+

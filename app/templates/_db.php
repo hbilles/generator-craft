@@ -12,21 +12,21 @@ return array(
 		'tablePrefix' => 'craft'
 	),
 
-	'<%= craftDomainName %>.dev' => array(
+	'<%= domainName %>.dev' => array(
 		'server' => 'localhost',
 		'user' => 'root',
 		'password' => '',
 		'database' => ''
 	),
 
-	'<%= craftDomainName %>.<%= craftStaging %>' => array(
+	'<%= domainName %>.<%= stagingDomain %>' => array(
 		'server' => 'localhost',
 		'user' => '',
 		'password' => '',
 		'database' => ''
 	),
 
-	'<%= craftDomainName %>.<%= craftProductionTLD %>' => array(
+	'<%= domainName %>.<%= productionTLD %>' => array(
 		'server' => 'localhost',
 		'user' => '',
 		'password' => '',

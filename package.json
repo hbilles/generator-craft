@@ -1,42 +1,33 @@
 {
   "name": "generator-craft",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "description": "A Craft CMS generator for Yeoman",
-  "keywords": [
-    "yeoman-generator",
-    "Craft CMS"
-  ],
-  "homepage": "https://bitbucket.org/hbilles/generator-craft",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "hbilles/generator-craft",
   "author": {
     "name": "Hite Billes",
     "email": "",
-    "url": "https://bitbucket.org/hbilles"
-  },
-  "main": "app/index.js",
-  "repository": {
-    "type": "git",
-    "url": "git://bitbucket.org/hbilles/generator-craft.git"
+    "url": "https://github.com/hbilles"
   },
   "scripts": {
     "test": "mocha"
   },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "Craft CMS"
+  ],
   "dependencies": {
-    "yeoman-generator": "~0.14.0",
-    "curlrequest": ">=0.3.10"
+    "chalk": "^1.0.0",
+    "curlrequest": ">=0.5.2",
+    "mkdirp": "^0.5.0",
+    "yeoman-generator": "^0.19.0",
+    "yosay": "^1.0.2"
   },
   "devDependencies": {
-    "mocha": "~1.14.0"
-  },
-  "peerDependencies": {
-    "yo": ">=1.0.0"
-  },
-  "engines": {
-    "node": ">=0.8.0",
-    "npm": ">=1.2.10"
-  },
-  "licenses": [
-    {
-      "type": "MIT"
-    }
-  ]
+    "mocha": "*"
+  }
 }

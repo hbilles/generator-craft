@@ -1,0 +1,102 @@
+// --------------------------------------------------------------------------
+// =jobs
+
+.jobs {
+	text-align: center;
+	margin-top: 2em;
+	margin-bottom: 1em;
+
+	@include media($medium) {
+		@include span-columns(8);
+	}
+
+	@include media($large) {
+		@include span-columns(12);
+	}
+}
+
+.job {
+	.button {
+		margin-top: 1em;
+	}
+}
+
+.jobs-featured,
+.jobs-list {	
+	.job {
+		margin: 0 0 1.5em;
+		padding: 1em;
+		text-align: center;
+
+		@include media($medium) {
+			padding: 2em 1.5em;
+		}
+
+		@include media($mediumOnly) {
+			//@include span-columns(4 of 8);
+			@include span-inline(4 of 8);
+			@include omega(2n);
+		}
+	}
+
+	.job-title {
+		font-size: em($heading-4-small);
+		margin: 0 0 .2em;
+	}
+}
+
+.jobs-featured {
+	.job {
+		background-color: $white;
+
+		@include media($large) {
+			//@include span-columns(4 of 12);
+			@include span-inline(4 of 12);
+			@include omega(3n);
+		}
+	}
+}
+
+.jobs-list {
+	.job {
+		@extend %bg-lightCream;
+
+		@include media($large) {
+			padding: 2em;
+			//@include span-columns(6 of 12);
+			@include span-inline(6 of 12);
+			@include omega(2n);
+		}
+	}
+}
+
+.job-location,
+.job-client {
+	display: block;
+}
+
+#work-at-offor-walker-group {
+	text-align: center;
+}
+
+.owg-jobs {
+	.job {
+		@extend %bg-cream;
+
+		margin: 0 0 1.5em;
+		padding: 1em;
+		text-align: center;
+
+		@include media($medium) {
+			padding: 2em;
+		}
+
+		h3 {
+			margin-top: 0;
+		}
+
+		p {
+			margin: 1.5em 0;
+		}
+	}
+}

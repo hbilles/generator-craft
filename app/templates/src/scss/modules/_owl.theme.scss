@@ -1,0 +1,98 @@
+/* 
+ * 	Default theme - Owl Carousel CSS File
+ */
+.owl-theme .owl-controls {
+	margin-top: 10px;
+	text-align: center;
+	-webkit-tap-highlight-color: transparent;
+}
+.owl-theme .owl-controls .owl-nav [class*='owl-'] {
+	color: $color-link;
+	font-size: em(16);
+	line-height: 1;
+	margin: 5px;
+	padding: .5em .75em;
+	//background-color: rgba(0, 0, 0, .7);
+	display: inline-block;
+	cursor: pointer;
+	//border-radius: 3px;
+	border-radius: 5em;
+}
+.owl-theme .owl-controls .owl-nav [class*='owl-']:hover {
+	background-color: $color-link;
+	color: $white;;
+	text-decoration: none;
+}
+.owl-theme .owl-controls .owl-nav .disabled {
+	opacity: 0.5;
+	cursor: default;
+}
+.owl-theme .owl-dots .owl-dot {
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+}
+.owl-theme .owl-dots .owl-dot span {
+	width: 10px;
+	height: 10px;
+	margin: 5px 7px;
+	background: transparent;
+	box-shadow: 0 0 0 2px $color-link;
+	display: block;
+	-webkit-backface-visibility: visible;
+	transition: opacity 200ms ease;
+	border-radius: 30px;
+}
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+	background: $color-link;
+}
+
+// positioning and content only
+.owl-theme .owl-controls .owl-nav {
+	.owl-prev,
+	.owl-next {
+		position: absolute;
+		//top: 40%;
+		bottom: -.375em;
+		width: 2rem;
+		height: 2rem;
+	}
+
+	.owl-prev {
+		left: 0;
+
+		&:before {
+			@extend %icon-left;
+			position: absolute;
+			display: block;
+			width: 2rem;
+			height: 2rem;
+			line-height: 2rem;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
+		}
+	}
+
+	.owl-next {
+		@media screen and (min-width: $site-width-medium) {
+			right: 0;
+		}
+
+		&:after {
+			@extend %icon-right;
+			position: absolute;
+			display: block;
+			width: 2rem;
+			height: 2rem;
+			line-height: 2rem;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
+		}
+	}
+}

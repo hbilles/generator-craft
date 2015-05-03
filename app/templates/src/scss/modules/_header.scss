@@ -1,0 +1,62 @@
+// ---------------------------------------------------------------------------
+// header
+
+.header-graphic {
+	overflow: hidden;
+	// Background images defined in templates
+	background-size: cover;
+	background-position: bottom center;
+	background-repeat: no-repeat;
+}
+
+.header-in {
+	@include clearfix;
+	position: relative;
+	//margin: 0 1em;
+	//padding: 2em 0 0;
+}
+
+.header-heading {
+	margin: 0 0 .5em;
+
+	font-size: em($heading-1-small);
+}
+
+.header-summary {
+	font-size: em($body-small);
+}
+
+
+// --------------------------------------------------------------------------
+// smallplus styles
+
+@media screen and (min-width: $site-width-smallplus) {
+
+	
+}
+
+// --------------------------------------------------------------------------
+// medium styles
+
+@media screen and (min-width: $site-width-medium) {
+
+	.header-in {
+		padding: 3em 0 0;
+	}
+}
+
+// --------------------------------------------------------------------------
+// large styles
+
+@media screen and (min-width: $site-width-large) {
+
+	.header-graphic {
+		.header-heading {
+			font-size: em($heading-1-medium);
+		}
+	}
+
+	.header-in {
+		padding: 5em 0 0;
+	}
+}

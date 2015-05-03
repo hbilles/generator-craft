@@ -1,0 +1,51 @@
+// --------------------------------------------------------------------------
+// =search
+
+.quickSearch {
+	form {
+		@media screen and (min-width: $site-width-medium) {
+			width: 48%;
+		}
+	}
+
+	#professions,
+	#specialties,
+	#location {
+		margin: 0 0 1em;
+	}
+
+	button {
+		margin: 0;
+	}
+}
+
+.searchResults {
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+}
+
+.searchResult {
+	margin: -1px 0 0;
+	border-top: 1px solid $lightest-grey;
+	border-bottom: 1px solid $lightest-grey;
+
+	&:nth-child(odd) {
+		background-color: $off-white;
+	}
+}
+
+.searchResult-in {
+	padding: 1em;
+
+	@media screen and (min-width: $site-width-medium) {
+		width: $content-width-medium;
+		margin: -1px auto 0;
+		padding: 1em 0;
+	}
+
+	@media screen and (min-width: $site-width-large) {
+		width: $content-width-large;
+	}
+}

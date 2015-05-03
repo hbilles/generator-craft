@@ -1,0 +1,203 @@
+// --------------------------------------------------------------------------
+// =forms
+
+form {
+	
+	ol {
+		margin: 0;
+		padding: 0;
+	}
+	
+	li,
+	p,
+	.question {
+		list-style: none;
+		margin: 0 0 1em;
+
+		&.required {
+			position: relative;
+
+			&:before {
+				content: '*';
+				display: block;
+				position: absolute;
+				left: -.75em;
+				top: .3em;
+
+				color: $color-warning;
+
+				@media screen and (min-width: $site-width-medium) {
+					left: -1em;
+				}
+			}
+		}
+	}
+}
+
+fieldset {
+	margin: 0 0 1.5em;
+
+	&:last-of-type {
+		margin: 0;
+	}
+}
+
+label {
+	display: block;
+	margin: 0 0 .5em;
+
+	font-weight: bold;
+	line-height: 1;
+
+	.help {
+		margin: 0 0 0 .5em;
+		font-size: inherit;
+		font-weight: normal;
+	}
+
+	&.error {
+		margin: .5em 0 0;
+		color: $color-warning;
+		text-transform: none;
+		font-weight: normal;
+	}
+
+	span {
+		font-size: 80%;
+		opacity: .75;
+		display: inline-block;
+	}
+}
+
+.help {
+	font-size: em($fineprint-small);
+}
+
+input[type='text'],
+input[type='email'],
+input[type='tel'],
+input[type='url'],
+input[type='number'],
+textarea,
+select {
+	color: $dark-grey;
+	background-color: $white;
+	border: 1px solid $lighter-grey;
+
+	@include appearance(none);
+}
+
+::-webkit-placeholder {
+	color: $dark-grey;
+}
+
+::-moz-placeholder {
+	color: $dark-grey;
+}
+
+::-ms-placeholder {
+	color: $dark-grey;
+}
+
+::placeholder {
+	color: $dark-grey;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='tel'],
+input[type='url'],
+input[type='number'],
+select,
+textarea {
+	padding: .5em;
+	width: 100%;
+
+	line-height: 1.4;
+
+	max-width: 30em;
+}
+
+input.error,
+textarea.error,
+select.error {
+	color: $color-warning;
+	border: 1px solid $color-warning;
+	background-color: pink;
+}
+
+span.error {
+	display: block;
+	margin: .5em 0 0;
+	font-size: em($body-small);
+	color: $color-warning;
+}
+
+select {
+	padding: .5em;
+	width: 100%;
+	max-width: 30em;
+
+	border-radius: 0;
+}
+
+.note {
+	font-size: em($body-small);
+}
+
+%button {
+	//margin: 1em 0;
+	margin: .5em 0;
+	padding: .6em 1em .4em;
+
+	text-align: center;
+
+	line-height: 1.4;
+
+	@include font-sans-alt(900);
+	font-size: rem($fineprint-small);
+	text-transform: uppercase;
+	letter-spacing: 1px;
+
+	color: $white;
+	background-color: $color-link;
+	border: 1px solid $color-link;
+
+	border-radius: $radius-medium;
+
+	cursor: pointer;
+	overflow: visible;
+
+	&:link,
+	&:visited {
+		color: $white;
+		background-color: $color-link;
+		border: 1px solid $color-link;
+	}
+	&:hover,
+	&:visited:hover {
+		color: $white;
+		background-color: $color-link-hover;
+		border: 1px solid $color-link-hover;
+	}
+
+	&::-moz-focus-inner {
+		border: none; 
+	}
+}
+
+button,
+.button {
+	display: inline-block;
+	@extend %button;
+	@include transition(all 0.2s ease-in-out);
+}
+
+
+// --------------------------------------------------------------------------
+// medium styles
+
+@media screen and (min-width: $site-width-medium) {
+
+	
+}

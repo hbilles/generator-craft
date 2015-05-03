@@ -14,23 +14,23 @@ return array(
 		'generateTransformsAfterPageLoad' => false,
 	),
 
-	'<%= craftDomainName %>.dev' => array(
+	'<%= domainName %>.dev' => array(
 		'devMode'				=> true,
 		'environmentVariables'	=> array(
-			'siteUrl' => 'http://<%= craftDomainName %>.dev'
+			'siteUrl' => 'http://<%= domainName %>.dev'
 		)
 	),
 
-	'<%= craftDomainName %>.<%= craftStaging %>' => array(
+	'<%= domainName %>.<%= stagingDomain %>' => array(
 		'devMode'				=> true,
 		'environmentVariables'	=> array(
-			'siteUrl' => 'http://<%= craftDomainName %>.<%= craftStaging %>'
+			'siteUrl' => 'http://<%= domainName %>.<%= stagingDomain %>'
 		)
 	),
 
-	'<%= craftDomainName %>.<%= craftProductionTLD %>' => array(
+	'<%= domainName %>.<%= productionTLD %>' => array(
 		'environmentVariables'	=> array(
-			'siteUrl' => 'http://<%= craftDomainName %>.<%= craftProductionTLD %>'
+			'siteUrl' => 'http://<%= domainName %>.<%= productionTLD %>'
 		)
 	),
 

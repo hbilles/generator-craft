@@ -1,0 +1,33 @@
+// ---------------------------------------------------------------------------
+// colors
+
+$white:     hsla(0, 0%, 100%, 1);
+$off-white: hsla(0, 0%, 98%, 1);
+$black:     hsla(0, 0%, 0%, 1);
+
+$dark-grey:        hsla(0, 0%, 25%, 1);
+$medium-dark-grey: hsla(0, 0%, 35%, 1);
+$medium-grey:      hsla(0, 0%, 45%, 1);
+$light-grey:       hsla(0, 0%, 65%, 1);
+$lighter-grey:     hsla(0, 0%, 80%, 1);
+$lightest-grey:    hsla(0, 0%, 93%, 1);
+
+$pink:   hsla(335, 84%, 54%, 1);
+$orange: hsla(33, 100%, 49%, 1);
+$green:  hsla(63, 65%, 47%, 1);
+
+$cream:       hsla(60, 19%, 90%, 1);
+$light-cream: hsla(60, 26%, 94%, 1);
+
+// Brand Colors
+$navy-blue:  hsla(208, 38%, 18%, 1);
+$blue:       hsla(203, 75%, 43%, 1);
+$light-blue: hsla(208, 60%, 68%, 1);
+
+// Element Colors
+$color-text: $navy-blue;
+
+$color-link: $green;
+$color-link-hover: $blue;
+
+$color-warning: hsla(0, 100%, 30%, 1);

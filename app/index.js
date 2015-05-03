@@ -1,146 +1,215 @@
 'use strict';
-var util = require('util');
-var path = require('path');
-var curl = require('curlrequest');
-var spawn = require('child_process').spawn;
-var yeoman = require('yeoman-generator');
+var yeoman = require('yeoman-generator'),
+	chalk  = require('chalk'),
+	yosay  = require('yosay'),
+	curl   = require('curlrequest'),
+	mkdirp = require('mkdirp'),
+	spawn  = require('child_process').spawn;
 
-var craftVersionMinor = '2.0',
-    craftVersion = craftVersionMinor + '.2541',
-    craftZipFile = 'Craft-' + craftVersion + '.zip';
+var craftVersionMinor = '2.3',
+	craftVersion      = craftVersionMinor + '.2644',
+	craftZipFile      = 'Craft-' + craftVersion + '.zip';
 
 
-var CraftGenerator = module.exports = function CraftGenerator(args, options, config) {
-  yeoman.generators.Base.apply(this, arguments);
+module.exports = yeoman.generators.Base.extend({
+	initializing: function() {
+		this.pkg = require('../package.json');
+	},
 
-  this.on('end', function () {
-    this.installDependencies({ skipInstall: options['skip-install'] });
-  });
+	prompting: function() {
+		var done = this.async();
 
-  this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
-};
+		// Have Yeoman greet the user.
+		this.log(yosay(
+			'Welcome to the ' + chalk.bold.underline('Craft CMS') + ' generator!'
+		));
 
-util.inherits(CraftGenerator, yeoman.generators.Base);
+		var prompts = [
+			{
+				type: 'input',
+				name: 'siteName',
+				message: 'What is the ' + chalk.underline('name') + ' of this website? (normal name with spaces and capitalization)'
+			},
+			{
+				type: 'input',
+				name: 'domainName',
+				message: 'What is the ' + chalk.underline('root domain name') + ' for this website? (no TLD extension)'
+			},
+			{
+				type: 'input',
+				name: 'productionTLD',
+				message: 'What is the ' + chalk.underline('TLD') + ' for the production website?',
+				default: 'com'
+			},
+			{
+				type: 'input',
+				name: 'stagingDomain',
+				message: 'What is the ' + chalk.underline('staging domain') + ' for this website?',
+				default: 'line58.com'
+			},
+			{
+				type: 'input',
+				name: 'craftVersion',
+				message: 'What is the ' + chalk.underline('current version of Craft') + '?',
+				default: craftVersion
+			}
+		];
 
-CraftGenerator.prototype.askFor = function askFor() {
-  var cb = this.async();
+		this.prompt(prompts, function(props) {
+			this.props = props;
+			// To access props later use this.props.someOption;
 
-  // have Yeoman greet the user.
-  console.log(this.yeoman);
+			craftVersion = props.craftVersion;
 
-  var prompts = [
-    {
-      name: 'craftName',
-      message: 'What is the name of this website? (normal name with spaces and capitalization)'
-    },
-    {
-      name: 'craftDomainName',
-      message: 'What is the root domain name for this website? (no TLD extension)'
-    },
-    {
-      name: 'craftProductionTLD',
-      message: 'What is the TLD extension for the production website?',
-      default: 'com'
-    },
-    {
-      name: 'craftStaging',
-      message: 'What is the staging domain for this website?',
-      default: 'line58.com'
-    },
-    {
-      name: 'craftVersion',
-      message: 'What is the current version of Craft?',
-      default: craftVersion
-    }
-  ];
+			var versionArray = craftVersion.split('.');
+			craftVersionMinor = versionArray[0] + '.' + versionArray[1];
+			craftZipFile = 'Craft-' + craftVersion + '.zip';
+		
+			done();
+		}.bind(this));
+	},
 
-  this.prompt(prompts, function (props) {
-    this.craftName = props.craftName;
-    this.craftDomainName = props.craftDomainName;
-    this.craftProductionTLD = props.craftProductionTLD;
-    this.craftStaging = props.craftStaging;
-    this.craftVersion = props.craftVersion;
+	downloading: function() {
+		var done = this.async();
 
-    craftVersion = this.craftVersion;
+		var options = {
+			url: 'http://download.buildwithcraft.com/craft/' + craftVersionMinor + '/' + craftVersion + '/' + craftZipFile,
+			verbose: true,
+			encoding: null,
+			'remote-name': true
+		};
 
-    var versionArray = craftVersion.split('.');
-    craftVersionMinor = versionArray[0] + '.' + versionArray[1];
-    craftZipFile = 'Craft-' + craftVersion + '.zip';
+		this.log('Downloading Craft CMS zip archive...');
 
-    cb();
-  }.bind(this));
-};
+		curl.request(options, function (err, file) {
 
-CraftGenerator.prototype.getCraft = function getCraft() {
-  var cb = this.async();
+			console.log('About to unzip Craft...');
 
-  var options = {
-    url: 'http://download.buildwithcraft.com/craft/' + craftVersionMinor + '/' + craftVersion + '/' + craftZipFile,
-    verbose: true,
-    encoding: null,
-    'remote-name': true
-  };
+			var unzip = spawn('unzip', [craftZipFile]);
 
-  console.log('Downloading Craft CMS zip archive...');
+			unzip.stdout.on('data', function (data) {
+				console.log('Unzipping!');
+			});
 
-  curl.request(options, function (err, file) {
+			unzip.stderr.on('data', function (data) {
+				console.log(chalk.red('Unzipping Craft Error: ') + data);
+			});
 
-    console.log('About to unzip Craft...');
+			unzip.on('close', function (code) {
+				if (code !== 0) {
+					console.log('Unzipping Craft exited with code ' + code);
+				} else {
+					console.log('Finished unzipping Craft!');
+				}
 
-    var unzip = spawn('unzip', [craftZipFile]);
+				done();
+			});
+		});
+	},
 
-    unzip.stdout.on('data', function (data) {
-      console.log(data);
-    });
+	cleaning: function() {
+		var done = this.async();
 
-    unzip.stderr.on('data', function (data) {
-      console.log('Unzipping Craft Error: ' + data);
-    });
+		this.log('Cleaning up...');
 
-    unzip.on('close', function (code) {
-      if (code !== 0) {
-        console.log('Unzipping Craft exited with code ' + code);
-      }
+		var cleanup = spawn('rm', ['-rf', craftZipFile, 'craft/templates', 'craft/config/general.php', 'craft/config/db.php', 'public/index.php']);
 
-      cb();
-    });
-  });
+		cleanup.stderr.on('data', function (data) {
+			this.log(chalk.red('Cleanup error: ') + data);
+		});
 
-};
+		done();
+	},
 
-CraftGenerator.prototype.cleanupCraft = function cleanupCraft() {
-  var cb = this.async();
+	writing: {
+		app: function() {
+			this.fs.copy(
+				this.templatePath('editorconfig'),
+				this.destinationPath('.editorconfig')
+			);
 
-  console.log('Cleaning up after unzipping Craft...');
+			this.fs.copy(
+				this.templatePath('jshintrc'),
+				this.destinationPath('.jshintrc')
+			);
 
-  var cleanup = spawn('rm', ['-rf', craftZipFile, 'craft/templates', 'public/index.php']);
+			this.fs.copy(
+				this.templatePath('gitignore'),
+				this.destinationPath('.gitignore')
+			);
 
-  cleanup.stderr.on('data', function (data) {
-    console.log('Cleanup error: ' + data);
-  });
+			this.fs.copyTpl(
+				this.templatePath('_package.json'),
+				this.destinationPath('package.json'),
+				{
+					domainName: this.props.domainName,
+					siteName: this.props.siteName
+				}
+			);
 
-  cb();
-}
+			this.directory('gulp', 'gulp');
+			this.fs.copyTpl(
+				this.templatePath('_browserSync.js'),
+				this.destinationPath('gulp/tasks/browserSync.js'),
+				{
+					domainName: this.props.domainName
+				}
+			);
+			this.fs.copy(
+				this.templatePath('gulpfile.js'),
+				this.destinationPath('gulpfile.js')
+			);
+		},
 
-CraftGenerator.prototype.app = function app() {
-  this.copy('Gruntfile.js', 'Gruntfile.js');
-  this.copy('bowerrc', '.bowerrc');
-  this.copy('editorconfig', '.editorconfig');
-  this.copy('jshintrc', '.jshintrc');
-  this.copy('gitignore', '.gitignore');
-  
-  this.template('_package.json', 'package.json');
-  this.template('_bower.json', 'bower.json');
-};
+		projectFiles: function() {
+			var done = this.async();
 
-CraftGenerator.prototype.projectfiles = function projectfiles() {
-  this.template('_db.php', 'craft/config/db.php');
-  this.template('_general.php', 'craft/config/general.php');
+			this.fs.copyTpl(
+				this.templatePath('_db.php'),
+				this.destinationPath('craft/config/db.php'),
+				{
+					domainName: this.props.domainName,
+					stagingDomain: this.props.stagingDomain,
+					productionTLD: this.props.productionTLD
+				}
+			);
 
-  this.copy('htaccess', 'public/.htaccess');
-  this.copy('index.php', 'public/index.php');
+			this.fs.copyTpl(
+				this.templatePath('_general.php'),
+				this.destinationPath('craft/config/general.php'),
+				{
+					domainName: this.props.domainName,
+					stagingDomain: this.props.stagingDomain,
+					productionTLD: this.props.productionTLD
+				}
+			);
 
-  this.mkdir('public/images/cache');
-  this.directory('ui', 'public/ui');
+			this.fs.copy(
+				this.templatePath('htaccess'),
+				this.destinationPath('public/.htaccess')
+			);
 
-};
+			this.fs.copy(
+				this.templatePath('index.php'),
+				this.destinationPath('public/index.php')
+			);
+
+			this.directory('ui', 'public/ui');
+			mkdirp('public/images/cache', function(err) {
+				if (err) {
+					console.error(err);
+				} else {
+					console.log('Created image cache directory.');
+				}
+			});
+
+			this.directory('src', 'src');
+
+			done();
+		}
+	},
+
+	install: function() {
+		this.installDependencies();
+	}
+});

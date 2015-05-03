@@ -1,0 +1,38 @@
+// --------------------------------------------------------------------------
+// =contact
+
+.contact-content {
+	@include media($large) {
+		width: 40%;
+		float: left;
+
+		h1,
+		h2 {
+			text-align: left;
+		}
+
+		p {
+			font-size: em($body-medium);
+		}
+	}
+}
+
+.contact-form {
+	@include media($large) {
+		width: 50%;
+		float: right;
+	}
+}
+
+/*
+.contact-info {
+	@media screen and (min-width: $site-width-medium) {
+		width: 30%;
+		float: right;
+	}
+
+	@media screen and (min-width: $site-width-large) {
+		width: 24%;
+	}
+}
+*/

@@ -1,0 +1,149 @@
+// --------------------------------------------------------------------------
+// =team
+
+
+// --------------------------------------------------------------------------
+// =listing
+
+#team {
+	text-align: center;
+}
+
+.team {
+	text-align: center;
+	
+	@include media($medium) {
+		@include span-columns(8);
+	}
+}
+
+.person-list-item {
+	margin: 0 0 2.5em;
+	text-align: center;
+
+	@include media($mediumOnly) {
+		@include span-inline(4 of 8);
+		@include omega(2n);
+	}
+
+	@include media($large) {
+		@include span-inline(4 of 12);
+		@include omega(3n);
+	}
+}
+
+.person-list-link {
+	display: block;
+
+	&:link,
+	&:visited {
+		figure {
+			@include transition(all 0.2s ease-in-out);
+			border: 6px solid transparent;
+		}
+	}
+
+	&:hover,
+	&:visited:hover {
+		figure {
+			border: 6px solid $white;
+			box-shadow: 0 .5em .5em hsla(0, 0%, 0%, .25);
+		}
+	}
+
+	figure {
+		width: 80%;
+		margin: 0 auto .5em;
+		border-radius: 50em;
+		overflow: hidden;
+	}
+
+	h3 {
+		margin: 0;
+
+		@include media($medium) {
+			font-size: rem($heading-3-small);
+		}
+	}
+}
+
+.person-list-professionalTitle {
+	display: block;
+	margin: 0 0 .5em;
+}
+
+// --------------------------------------------------------------------------
+// =entry
+
+.person-title {
+	@include media($large) {
+		width: 48%;
+		float: right;
+
+		h1,
+		h2 {
+			text-align: left;
+		}
+	}
+}
+
+.person-name {
+	@include media($large) {
+		font-size: rem($heading-2-large);
+	}
+}
+
+.person-professionalTitle {
+	@include font-sans-alt(900);
+	text-transform: uppercase;
+	font-size: rem($heading-5-small);
+	letter-spacing: 1px;
+	margin: -.25em 0 1.5em;
+
+	@include media($medium) {
+		font-size: rem($heading-5-large);
+		margin-top: -.75em;
+	}
+
+	@include media($large) {
+		font-size: rem($heading-5-medium);
+		margin-top: -.25em;
+	}
+}
+
+.person-meta {
+	margin: 0 0 1.5em;
+	text-align: center;
+
+	@include media($large) {
+		width: 48%;
+		float: left;
+	}
+
+	figure {
+		width: 80%;
+		border-radius: 50em;
+		overflow: hidden;
+
+		margin: 0 auto 1em;
+	}
+
+	.person-phone {
+		display: block;
+		margin: .5em 0 0;
+	}
+}
+
+.person-bio {
+	@include media($large) {
+		width: 48%;
+		float: right;
+	}
+
+	p,
+	li {
+		@include media($large) {
+			font-size: rem($body-medium);
+		}
+	}
+}

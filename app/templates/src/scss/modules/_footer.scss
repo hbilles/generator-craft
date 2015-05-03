@@ -1,0 +1,115 @@
+// --------------------------------------------------------------------------
+// =footer
+
+.footer {
+
+}
+
+footer#meta {
+	p,
+	li,
+	address,
+	.phone {
+		font-size: em($body-small);
+		line-height: 1.4;
+	}
+}
+
+.footer-heading {
+	font-size: em($heading-4-small);
+	margin-top: 0;
+}
+
+.footer-about,
+.footer-nav,
+.footer-contact {
+	margin: 0 0 1.5em;
+}
+
+.footer-about {
+	@include media($large) {
+		display: inline-block;
+		vertical-align: top;
+		width: 44%;
+		margin-right: 8%;
+	}
+}
+
+.footer-nav {
+	@include media($medium) {
+		display: inline-block;
+		vertical-align: top;
+		width: 48%;
+		margin-right: 4%;
+	}
+
+	@include media($large) {
+		width: 18%;
+		margin-right: 2%;
+	}
+}
+
+.footer-contact {
+	@media screen and (min-width: $site-width-medium) {
+		display: inline-block;
+		vertical-align: top;
+		width: 48%;
+	}
+
+	@media screen and (min-width: $site-width-large) {
+		width: 20%;
+	}
+
+	.socialMedia {
+		margin: 1em 0 0;
+	}
+}
+
+.footer-contact-link {
+	display: block;
+}
+
+.footer-in {
+	@include clearfix;
+	margin: 0 1em;
+	padding: 2em 0;
+
+	@media screen and (min-width: $site-width-medium) {
+		width: $content-width-medium;
+		margin: 0 auto;
+		padding: 3em 0 0;
+	}
+
+	@media screen and (min-width: $site-width-large) {
+		width: $content-width-large;
+	}
+}
+
+#fineprint {
+	text-align: center;
+
+	.footer-in {
+		border-top: 1px solid rgba(255, 255, 255, .3);
+
+		@media screen and (min-width: $site-width-medium) {
+			padding: 2em 0 1em;
+		}
+	}
+
+	.copyright,
+	.credits {
+		font-size: em($fineprint-small);
+	}
+}
+
+.copyright {
+	@media screen and (min-width: $site-width-medium) {
+		float: left;
+	}
+}
+
+.credits {
+	@media screen and (min-width: $site-width-medium) {
+		float: right;
+	}
+}
