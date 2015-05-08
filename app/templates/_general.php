@@ -17,20 +17,22 @@ return array(
 	'<%= domainName %>.dev' => array(
 		'devMode'				=> true,
 		'environmentVariables'	=> array(
-			'siteUrl' => 'http://<%= domainName %>.dev'
+			'basePath' => '../public/',
+			'baseUrl' => '/'
 		)
 	),
 
 	'<%= domainName %>.<%= stagingDomain %>' => array(
-		'devMode'				=> true,
 		'environmentVariables'	=> array(
-			'siteUrl' => 'http://<%= domainName %>.<%= stagingDomain %>'
+			'basePath' => '../public/',
+			'baseUrl' => 'http://<%= domainName %>.<%= stagingDomain %>'
 		)
 	),
 
 	'<%= domainName %>.<%= productionTLD %>' => array(
 		'environmentVariables'	=> array(
-			'siteUrl' => 'http://<%= domainName %>.<%= productionTLD %>'
+			'basePath' => '../public/',
+			'baseUrl' => 'http://<%= domainName %>.<%= productionTLD %>'
 		)
 	),
 
