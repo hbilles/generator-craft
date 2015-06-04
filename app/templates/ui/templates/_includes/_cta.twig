@@ -1,0 +1,36 @@
+{% set cta = cta|default(callToAction) %}
+{% set bg = bg|default('bg-color') %}
+{% set class = cta.showForm ? 'cta cta-hasForm ' ~ bg : 'cta ' ~ bg %}
+{% set wrapper = wrapper | default('yes') %}
+
+{% if wrapper == 'yes' %}
+<section class="{{ class }} section">
+	<div class="section-in">
+{% else %}
+<div class="{{ class }}">
+{% endif %}
+		<div class="cta-content">
+			<h2 class="cta-heading">{{ cta.heading }}</h2>
+			{% if cta.copy %}
+			<div class="cta-text">
+				{{ cta.copy | pd }}
+			</div>
+			{% endif %}
+		</div>
+
+		{% if cta.showForm %}
+		<div class="cta-form">
+			{% include '_includes/_form' with { form: cta.form } %}
+		</div>
+		{% else %}
+			{% if cta.buttonText|length and cta.linkUrl|length %}
+				<a href="{{ cta.linkUrl }}" class="button go waves-effect waves-light">{{ cta.buttonText }}</a>
+			{% endif %}
+		{% endif %}
+
+{% if wrapper == 'yes' %}
+	</div>
+</section>
+{% else %}
+</div>
+{% endif %}

@@ -457,12 +457,12 @@ $clr-black:     hsla(0, 0%, 0%, 1);
 
 // Greys
 
-$clr-dark-grey:        $clr-grey-200;
-$clr-medium-dark-grey: $clr-grey-300;
-$clr-medium-grey:      $clr-grey-500;
-$clr-light-grey:       $clr-grey-700;
-$clr-lighter-grey:     $clr-grey-800;
-$clr-lightest-grey:    $clr-grey-900;
+$clr-dark-grey:        $clr-grey-900;
+$clr-medium-dark-grey: $clr-grey-800;
+$clr-medium-grey:      $clr-grey-700;
+$clr-light-grey:       $clr-grey-500;
+$clr-lighter-grey:     $clr-grey-300;
+$clr-lightest-grey:    $clr-grey-200;
 
 // Brand Colors
 
@@ -470,7 +470,7 @@ $clr-lightest-grey:    $clr-grey-900;
 // Element Colors
 $clr-ui-text: $clr-dark-grey;
 
-$clr-ui-link: $clr-teal-500;
-$clr-ui-link-hover: $clr-teal-700;
+$clr-ui-link: $clr-grey-500;
+$clr-ui-link-hover: $clr-grey-900;
 
 $clr-ui-warning: $clr-red;

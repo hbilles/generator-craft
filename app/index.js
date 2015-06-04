@@ -6,8 +6,8 @@ var yeoman = require('yeoman-generator'),
 	mkdirp = require('mkdirp'),
 	spawn  = require('child_process').spawn;
 
-var craftVersionMinor = '2.3',
-	craftVersion      = craftVersionMinor + '.2644',
+var craftVersionMinor = '2.4',
+	craftVersion      = craftVersionMinor + '.2669',
 	craftZipFile      = 'Craft-' + craftVersion + '.zip';
 
 

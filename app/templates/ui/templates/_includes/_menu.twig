@@ -1,6 +1,12 @@
-<nav id="menu" itemscope itemtype="http://schema.org/SiteNavigationElement">
+<nav id="{{ id }}" class="menu-primary{% if class is defined %} {{ class }}{% endif %}" itemscope itemtype="http://schema.org/SiteNavigationElement">
 	<div class="inner">
 		<ul>
+			<li class="link-home">
+				<a href="/" title="Home"{% if craft.request.getSegment(1) == '' %} class="current"{% endif %} itemprop="url">
+					<span>Home</span>
+				</a>
+			</li>
+			
 			{# TEMPLATE for nav
 			{% for about in craft.entries.section('about') %}
 			<li>

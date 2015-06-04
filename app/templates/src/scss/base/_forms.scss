@@ -146,9 +146,11 @@ select {
 }
 
 %button {
+	@include transition(all 0.2s ease-in-out);
+
 	//margin: 1em 0;
 	margin: .5em 0;
-	padding: .6em 1em .4em;
+	padding: .5em 1em;
 
 	text-align: center;
 
@@ -161,24 +163,33 @@ select {
 
 	color: $clr-white;
 	background-color: $clr-ui-link;
-	border: 1px solid $clr-ui-link;
+	//border: 1px solid $clr-ui-link;
+	border: none;
 
-	border-radius: $radius-medium;
+	border-radius: $radius-xsmall;
 
 	cursor: pointer;
 	overflow: visible;
+	// Gets rid of tap active state
+	-webkit-tap-highlight-color: transparent;
+
+	@extend %z-depth-1;
 
 	&:link,
 	&:visited {
 		color: $clr-white;
 		background-color: $clr-ui-link;
-		border: 1px solid $clr-ui-link;
+		//border: 1px solid $clr-ui-link;
+
+		@extend %z-depth-1;
 	}
 	&:hover,
 	&:visited:hover {
 		color: $clr-white;
 		background-color: $clr-ui-link-hover;
-		border: 1px solid $clr-ui-link-hover;
+		//border: 1px solid $clr-ui-link-hover;
+
+		@extend %z-depth-1-half;
 	}
 
 	&::-moz-focus-inner {
@@ -190,6 +201,5 @@ button,
 .button {
 	display: inline-block;
 	@extend %button;
-	@include transition(all 0.2s ease-in-out);
 }
 

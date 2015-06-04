@@ -4,4 +4,5 @@ var	mobileMenu         = require('./mobileMenu'),
 	setMatchHeight     = require('./setMatchHeight'),
 	loadForms          = require('./loadForms'),
 	setValidation      = require('./setValidation'),
-	setPlaceholders    = require('./setPlaceholders');
+	setPlaceholders    = require('./setPlaceholders'),
+	waves              = require('./vendor/waves');

@@ -1,0 +1,7 @@
+<address itemscope itemtype="http://schema.org/PostalAddress">
+	<span itemprop="streetAddress">
+		{{ location.street1 }}
+		{% if location.street2 %}<br>{{ location.street2 }}{% endif %}
+	</span><br>
+	<span itemprop="addressLocality">{{ location.city }}</span>&nbsp;<span itemprop="addressRegion">{{ location.state }}</span>&nbsp;<span itemprop="postalCode">{{ location.postalCode }}</span>
+</address>

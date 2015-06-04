@@ -1,0 +1,29 @@
+{% extends '_layouts/main' %}
+
+{% set homeTitle = entry.metaTitle | default(entry.title) %}
+{% set metaDescription = entry.metaDescription %}
+
+{% block content %}
+
+{# ------------------------------------
+INTRO CONTENT
+------------------------------------ #}
+<section class="section section-intro">
+	<div class="section-in">
+		<h1>{{ entry.title }}</h1>
+		
+		{{ entry.copy | pd }}
+
+		<p class="section-button"><a href="#" class="button go waves-effect waves-light">Learn more</a></p>
+	</div>
+</section>
+
+
+{# ------------------------------------
+GLOBAL CALL-TO-ACTION
+------------------------------------ #}
+{% include '_includes/_cta' %}
+
+
+{% endblock %}
+

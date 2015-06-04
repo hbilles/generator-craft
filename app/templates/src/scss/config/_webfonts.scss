@@ -25,12 +25,6 @@
 	height: .62em;
 }
 
-%font_glyphs {
-	font-family: 'WebSymbols';
-	font-weight: normal;
-	font-style: normal;
-}
-
 %icon-menu { 
 	font-family: 'WebSymbols';
 	content: '\e812';
@@ -101,6 +95,13 @@
 	font-style: normal;
 }
 
+%icon-youtube { 
+	font-family: 'WebSymbols';
+	content: '\e81a';
+	font-weight: normal;
+	font-style: normal;
+}
+
 %icon-vimeo { 
 	font-family: 'WebSymbols';
 	content: '\e805';
@@ -117,7 +118,7 @@
 
 %icon-instagram { 
 	font-family: 'WebSymbols';
-	content: '\e815';
+	content: '\e817';
 	font-weight: normal;
 	font-style: normal;
 }
@@ -157,9 +158,51 @@
 	font-style: normal;
 }
 
+%icon-arrow-up { 
+	font-family: 'WebSymbols';
+	content: '\e821';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-arrow-right { 
+	font-family: 'WebSymbols';
+	content: '\e820';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-arrow-down { 
+	font-family: 'WebSymbols';
+	content: '\e81c';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-arrow-left { 
+	font-family: 'WebSymbols';
+	content: '\e81d';
+	font-weight: normal;
+	font-style: normal;
+}
+
 %icon-pdf { 
 	font-family: 'WebSymbols';
 	content: '\e80b';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-document { 
+	font-family: 'WebSymbols';
+	content: '\e813';
+	font-weight: normal;
+	font-style: normal;
+}
+
+%icon-document-solid { 
+	font-family: 'WebSymbols';
+	content: '\e815';
 	font-weight: normal;
 	font-style: normal;
 }
@@ -192,6 +235,13 @@
 	font-style: normal;
 }
 
+%icon-videoCamera { 
+	font-family: 'WebSymbols';
+	content: '\e81b';
+	font-weight: normal;
+	font-style: normal;
+}
+
 %icon-external { 
 	font-family: 'WebSymbols';
 	content: '\e819';
@@ -199,16 +249,9 @@
 	font-style: normal;
 }
 
-%icon-external-2 { 
-	font-family: 'WebSymbols';
-	content: '\e817';
-	font-weight: normal;
-	font-style: normal;
-}
-
 %icon-download { 
 	font-family: 'WebSymbols';
-	content: '\e818';
+	content: '\e817';
 	font-weight: normal;
 	font-style: normal;
 }

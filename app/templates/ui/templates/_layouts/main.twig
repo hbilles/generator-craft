@@ -1,9 +1,13 @@
+{% set cssVersion = '0.0.1' %}
+{% set jsVersion = '0.0.1' %}
+
 <!doctype html>
 
-<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<!--[if lt IE 7]> <html class="lt-ie10 lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie10 lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie10 lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="lt-ie10" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html lang="en"> <!--<![endif]-->
 
 <head>
 	<meta charset="utf-8">
@@ -13,50 +17,53 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<meta name="author" content="{{ siteName }}">
 
-	<link rel="Shortcut Icon" href="/favicon.ico">
-	<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png">
+	{% include '_includes/_favicons' %}
 
 	{% if canonicalUrl is defined %}<link rel="canonical" href="{{ canonicalUrl }}">{% endif %}
 
-	{% include '_includes/_socialMediaHead' %}
-	{% include '_includes/_stylesheets' with ({ cssVersion: '1.0' }) %}
-	{% include '_includes/_scripts' with ({ jsVersion: '1.0' }) %}
+	{#{% include '_includes/_socialMediaHead' %}#}
+	{% include '_includes/_stylesheets' %}
+	{% include '_includes/_scriptsHead' %}
 </head>
 
 <body itemscope itemtype="http://schema.org/{% if pageSchema is defined %}{{ pageSchema }}{% else %}WebPage{% endif %}">
+<script>
+	var bdy = document.getElementsByTagName('body');
+	bdy[0].className = 'js';
+</script>
+
+<div id="top"></div>
 
 <div id="site">
 
-	<header id="header" itemscope itemtype="http://schema.org/WPHeader">
-		<div class="inner">
-			<h1 id="logo"><a href="{{ siteUrl }}" title="{{ globalVars.homeLinkTitle }}"><img src="/ui/img/logo.png" alt="{{ siteName }}"></a></h1>
-			<p class="jump"><a href="#menu" title="Jump to navigation menu">Menu</a></p>
-		</div>
-	</header>
+	<div id="page"{% if pageClass is defined %} class="{{ pageClass }}"{% endif %}>
+		<header id="masthead" itemscope itemtype="http://schema.org/WPHeader">
+			<div class="masthead-in">
+				<h1 id="logo">
+					<a href="{{ siteUrl }}" title="{{ globalVars.homeLinkTitle }}">
+						<img src="/ui/img/logo.png" alt="{{ siteName }}">
+					</a>
+				</h1>
+				<p id="masthead-menuTrigger"><a href="#menu-mobile" title="Jump to navigation menu"><span>Menu</span></a></p>
 
-	<section id="content"{% if contentClass is defined %} class="{{ contentClass }}"{% endif %} itemprop="mainContentOfPage">
-		{% block content %}
-		{% endblock %}
-	</section>
+				{% include '_includes/_menu' with { id: 'menu-desktop', class: 'menu-desktop' } %}
+			</div>
+		</header>
+	
+		<main id="content"{% if contentClass is defined %} class="{{ contentClass }}"{% endif %} itemprop="mainContentOfPage">
+			{% block content %}
+			{% endblock %}
+		</main>
 
-	{% include '_includes/_menu' %}
+		{% include '_includes/_menu' with { id: 'menu-mobile', class: 'menu-mobile' } %}
+	
+		{% include '_includes/_footer' %}
 
-	<footer class="footer" id="meta" itemscope itemtype="http://schema.org/WPFooter">
-		<div class="inner">
-			{% include '_includes/_footerNewsletter' %}
-		</div>
-	</footer>
+	</div>{# /#page #}
 
-	<footer class="footer" id="fineprint">
-		<div class="inner">
-			<p class="copyright"><span>Copyright &copy; {{ now.format('Y') }} {{ siteName }}.</span> <span>All Rights Reserved.</span></p>
-			<p class="credits"><a href="http://line58.com" title="Visit the Line 58 website"><span>Branding and Web Design by</span> <span>Line 58</span></a></p>
-		</div>
-	</footer>
+</div>{# /#site #}
 
-</div>
-
-{% include '_includes/_googleAnalytics' %}
+{% include '_includes/_scriptsFooter' %}
 
 </body>
 </html>

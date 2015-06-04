@@ -1,0 +1,46 @@
+<footer class="footer" id="meta" itemscope itemtype="http://schema.org/WPFooter">
+	<div class="footer-in">
+		{% spaceless %}
+		<div class="footer-about">
+			<h3 class="footer-heading">{{ footer.heading }}</h3>
+			{{ footer.copy | pd }}
+		</div>
+
+		<nav class="footer-nav">
+			<ul>
+				
+				<li>
+					<a href="/#link1" title="">Link 1</a>
+				</li>
+
+				<li>
+					<a href="/#link2" title="">Link 2</a>
+				</li>
+
+				<li>
+					<a href="/#link3" title="">Link 3</a>
+				</li>				
+			</ul>
+		</nav>
+
+		<div class="footer-contact">
+		{% for contact in craft.entries.section('contact') %}
+			<span class="footer-contact-link"><a href="{{ contact.url }}" title="{{ contact.summary }}">{{ contact.title }}</a></span>
+			{#
+			{% if contact.phone %}{% include '_includes/_phone' with { number: contact.phone, label: 'Phone' } %}{% endif %}
+			{% if contact.fax %}{% include '_includes/_phone' with { number: contact.fax, label: 'Fax' } %}{% endif %}
+			{% include '_includes/_address' with { location: contact } %}
+			{% include '_includes/_socialMediaLinks' with { entry: contact } %}
+			#}
+		{% endfor %}
+		</div>
+		{% endspaceless %}
+	</div>
+</footer>
+
+<footer class="footer" id="fineprint">
+	<div class="footer-in">
+		<p class="copyright"><span>Copyright &copy; {{ now.format('Y') }} {{ siteName }}.</span> <span>All Rights Reserved.</span></p>
+		<p class="credits"><a href="http://line58.com" title="Visit the Line 58 website"{% if craft.request.segment(1) %} rel="nofollow"{% endif %}><span>Branding and Web Design by</span> <span>Line 58</span></a></p>
+	</div>
+</footer>

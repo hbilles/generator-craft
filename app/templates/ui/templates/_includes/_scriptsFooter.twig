@@ -1,0 +1,7 @@
+{% if craft.config.devMode %}
+<script src="/ui/build/js/app.js?v{{ jsVersion }}"></script>
+{% else %}
+<script src="/ui/build/js/app.min.js?v{{ jsVersion }}"></script>
+{% endif %}
+
+{% include '_includes/_googleAnalytics' %}
