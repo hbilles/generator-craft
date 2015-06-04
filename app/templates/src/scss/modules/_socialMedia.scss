@@ -9,7 +9,7 @@
 		list-style: none;
 		display: inline-block;
 		margin: 0 .5em 0 0;
-		font-size: em($body-small);
+		font-size: em($fs-body-small);
 	}
 }
 
@@ -22,15 +22,15 @@
 	&:link,
 	&:visited {
 		&:before {
-			background-color: $color-link;
-			color: $white;
+			background-color: $clr-ui-link;
+			color: $clr-white;
 		}
 	}
 
 	&:hover,
 	&:visited:hover {
 		&:before {
-			background-color: $color-link-hover;
+			background-color: $clr-ui-link-hover;
 		}
 	}
 
@@ -42,7 +42,7 @@
 		text-align: center;
 		line-height: 2em;
 
-		background-color: $color-link;
+		background-color: $clr-ui-link;
 	}
 }
 

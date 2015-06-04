@@ -24,20 +24,20 @@
 			text-transform: none;
 
 			@include media($medium) {
-				font-size: rem($heading-3-small);
+				font-size: rem($fs-h3-small);
 			}
 		}
 	}
 
 	.post-list-meta {
 		@include media($large) {
-			font-size: rem($fineprint-medium);
+			font-size: rem($fs-fine-medium);
 		}
 	}
 
 	.post-list-summary {
 		@include media($large) {
-			font-size: rem($body-small);
+			font-size: rem($fs-body-small);
 		}
 	}
 }
@@ -55,7 +55,7 @@
 
 		&:link,
 		&:visited {
-			background-color: $white;
+			background-color: $clr-white;
 
 			h3,
 			p {
@@ -64,23 +64,23 @@
 
 			.post-list-meta,
 			.post-list-summary {
-				color: $color-text;
+				color: $clr-ui-text;
 			}
 		}
 
 		&:hover,
 		&:visited:hover {
-			background-color: $color-link;
+			background-color: $clr-ui-link;
 
 			h3,
 			.post-list-meta,
 			.post-list-summary {
-				color: $white;
+				color: $clr-white;
 			}
 
 			.button {
-				color: $color-link;
-				background-color: $white;
+				color: $clr-ui-link;
+				background-color: $clr-white;
 			}
 		}
 	}
@@ -96,16 +96,16 @@
 
 .post-list-meta {
 	margin: -1em 0 0;
-	font-size: rem($fineprint-small);
+	font-size: rem($fs-fine-small);
 	text-transform: uppercase;
 	letter-spacing: .5px;
 
 	@include media($medium) {
-		font-size: rem($fineprint-medium);
+		font-size: rem($fs-fine-medium);
 	}
 
 	@include media($large) {
-		font-size: rem($body-small);
+		font-size: rem($fs-body-small);
 	}
 }
 
@@ -125,15 +125,15 @@
 	display: block;
 	margin: 0 0 1.5em;
 
-	@include font-sans-alt();
-	font-size: em($fineprint-small);
+	@include font-sans();
+	font-size: em($fs-fine-small);
 	text-transform: uppercase;
 	text-align: center;
 	line-height: 2;
 	letter-spacing: 2px;
 
-	@media screen and (min-width: $site-width-medium) {
-		font-size: em($bump-medium);
+	@include media($medium) {
+		font-size: em($fs-bump-medium);
 	}
 }
 
@@ -150,7 +150,7 @@
 		margin: auto;
 		width: 5em;
 		height: 0;
-		border-top: 2px solid $blue;
+		border-top: 2px solid $clr-grey;
 
 		@include media($medium) {
 			width: 8em;
@@ -166,7 +166,7 @@
 	}
 
 	.source {
-		@include font-sans-alt();
+		@include font-sans();
 
 		&:before {
 			content: '- ';

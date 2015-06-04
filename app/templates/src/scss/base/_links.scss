@@ -6,7 +6,7 @@ a {
 	@include transition(all 0.2s ease-in-out);
 
 	&:link {
-		color: $color-link;
+		color: $clr-ui-link;
 		//text-decoration: underline;
 
 		h1,
@@ -15,12 +15,12 @@ a {
 		h4,
 		h5,
 		h6 {
-			//color: $color-link;
+			//color: $clr-ui-link;
 		}
 	}
 
 	&:visited {
-		color: $color-link;
+		color: $clr-ui-link;
 
 		h1,
 		h2,
@@ -28,13 +28,13 @@ a {
 		h4,
 		h5,
 		h6 {
-			//color: $color-link;
+			//color: $clr-ui-link;
 		}
 	}
 
 	&:hover,
 	&:visited:hover {
-		color: $color-link-hover;
+		color: $clr-ui-link-hover;
 
 		h1,
 		h2,
@@ -42,7 +42,7 @@ a {
 		h4,
 		h5,
 		h6 {
-			//color: $color-link-hover;
+			//color: $clr-ui-link-hover;
 		}
 	}
 }

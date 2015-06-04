@@ -14,58 +14,5 @@
 
 	&:before {
 		@extend %icon-openQuote;
-		width: $quote-width-small;
-		height: $quote-height-small;
-		margin: 0 auto 1.5em;
-
-		@include media($medium) {
-			position: absolute;
-			z-index: 0;
-			top: 0;
-			left: 0;
-			margin: 0;
-			width: $quote-width-medium;
-			height: $quote-height-medium;
-		}
-
-		@include media($large) {
-			width: $quote-width-large;
-			height: $quote-height-large;
-		}
-	}
-
-	&:after {
-		@extend %icon-closeQuote;
-		display: none;
-
-		@include media($medium) {
-			position: absolute;
-			z-index: 0;
-			top: 0;
-			right: 0;
-			display: block;
-			width: $quote-width-medium;
-			height: $quote-height-medium;
-		}
-
-		@include media($large) {
-			width: $quote-width-large;
-			height: $quote-height-large;
-		}
-	}
-
-	p,
-	li {
-		position: relative;
-		z-index: 1;
-	}
-}
-
-.bg-lightBlue {
-	.quotation {
-		&:before,
-		&:after {
-			opacity: .25;
-		}
 	}
 }

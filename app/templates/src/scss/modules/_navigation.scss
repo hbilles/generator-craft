@@ -17,16 +17,16 @@ nav {
 
 .menu-mobile {
 
-	background-color: $color-link-hover;
+	background-color: $clr-ui-link-hover;
 
-	@media screen and (min-width: $site-width-large) {
+	@include media($large) {
 		display: none;
 	}
 
 	li {
 		font-size: rem(20);
 
-		@media screen and (min-width: $site-width-medium) {
+		@include media($medium) {
 			font-size: rem(24);
 		}
 	}
@@ -39,8 +39,8 @@ nav {
 
 		&:link,
 		&:visited {
-			color: $off-white;
-			background-color: $color-link-hover;
+			color: $clr-off-white;
+			background-color: $clr-ui-link-hover;
 
 			.menu-itemDescription {
 				//color: $;
@@ -49,22 +49,22 @@ nav {
 
 		&:hover,
 		&:visited:hover {
-			color: $white;
-			background-color: $color-link;
+			color: $clr-white;
+			background-color: $clr-ui-link;
 
 			.menu-itemHeading {
 				//text-decoration: underline;
 			}
 
 			.menu-itemDescription {
-				color: $white;
+				color: $clr-white;
 			}
 		}
 
-		@media screen and (min-width: $site-width-medium) {
+		@include media($medium) {
 			span {
 				display: block;
-				width: $content-width-medium;
+				width: $width-medium;
 				margin: 0 auto;
 			}
 		}
@@ -82,7 +82,7 @@ nav {
 	
 	border-top: 1px solid rgba(255, 255, 255, .3);
 
-	@media screen and (min-width: $site-width-medium) {
+	@include media($medium) {
 		top: 6.4em;
 	}
 }
@@ -95,12 +95,12 @@ nav {
 	//right: 1em;
 	margin: 0;
 
-	@media screen and (min-width: $site-width-medium) {
+	@include media($medium) {
 		display: block;
 		text-align: center;
 	}
 
-	@media screen and (min-width: $site-width-large) {
+	@include media($large) {
 		position: absolute;
 		top: 1.4em;
 		right: 1em;
@@ -112,8 +112,8 @@ nav {
 		display: inline-block;
 		padding: .75em .125em;
 
-		@media screen and (min-width: $site-width-medium) {
-			font-size: rem($body-small);
+		@include media($medium) {
+			font-size: rem($fs-body-small);
 		}
 	}
 
@@ -126,48 +126,28 @@ nav {
 
 		&:link,
 		&:visited {
-			color: $color-link-hover;
+			color: $clr-ui-link-hover;
 		}
 
 		&.current,
 		&:hover,
 		&:visited:hover {
-			color: $color-link;
+			color: $clr-ui-link;
 		}
 	}
-
-	/*
-	.menu-getStarted {
-		a {	
-			border-radius: $radius-small;
-					
-			&:link,
-			&:visited {
-				color: $white;
-				background-color: $color-link;
-			}
-
-			&:hover,
-			&:visited:hover {
-				color: $white;
-				background-color: $color-link-hover;
-			}
-		}
-	}
-	*/
 }
 
 .prevNext {
 	@include clearfix;
 	margin: 0 1em 1.5em;
 
-	@media screen and (min-width: $site-width-medium) {
-		width: $content-width-medium;
+	@include media($medium) {
+		width: $width-medium;
 		margin: 0 auto 1.5em;
 	}
 
-	@media screen and (min-width: $site-width-large) {
-		width: $content-width-large;
+	@include media($large) {
+		width: $width-large;
 	}
 }
 
@@ -176,7 +156,7 @@ nav {
 	a {
 		&:link,
 		&:visited {
-			color: $off-white;
+			color: $clr-off-white;
 		}
 	}
 }

@@ -1,50 +1,48 @@
 // -------------------------------------------------------------------------
 // font-sizes
 
-$base-font-size: 16; // THIS IS THE BROWSER'S BASE SIZE CONSTANT. DO NOT MODIFY.
+$fs-base: 16; // THIS IS THE BROWSER'S BASE SIZE CONSTANT. DO NOT MODIFY.
 
 // small screens
 
-$heading-1-small: 33;
-$heading-2-small: 28;
-$heading-3-small: 23;
-$heading-4-small: 19;
-$heading-5-small: 16;
+$fs-h1-small: 33;
+$fs-h2-small: 28;
+$fs-h3-small: 23;
+$fs-h4-small: 19;
+$fs-h5-small: 16;
 
-$body-small: 16;
-$bump-small: 17;
-$summary-small: 20;
-$fineprint-small: 13;
-$veryfineprint-small: 10;
+$fs-body-small: 16;
+$fs-bump-small: 17;
+$fs-summary-small: 20;
+$fs-fine-small: 13;
+$fs-xfine-small: 10;
 
 
 // medium screens
-$heading-1-medium: 52;
-$heading-2-medium: 33;
-$heading-3-medium: 29;
-//$heading-3-medium: 19;
-$heading-4-medium: 22;
-$heading-5-medium: 19;
+$fs-h1-medium: 52;
+$fs-h2-medium: 33;
+$fs-h3-medium: 29;
+$fs-h4-medium: 22;
+$fs-h5-medium: 19;
 
-$body-medium: 18;
-$bump-medium: 20;
-$summary-medium: 22;
-$fineprint-medium: 14;
-$veryfineprint-medium: 11;
+$fs-body-medium: 18;
+$fs-bump-medium: 19;
+$fs-summary-medium: 22;
+$fs-fine-medium: 14;
+$fs-xfine-medium: 11;
 
 
 // large screens
 
-$heading-1-large: 58;
-$heading-2-large: 42;
-$heading-3-large: 43;
-$heading-4-large: 29;
-$heading-5-large: 22;
+$fs-h1-large: 58;
+$fs-h2-large: 42;
+$fs-h3-large: 43;
+$fs-h4-large: 29;
+$fs-h5-large: 22;
 
-//$body-large: 20;
-$body-large: 23;
-$bump-large: 26;
-//$summary-large: 24;
-$summary-large: 27;
-$fineprint-large: 14;
-$veryfineprint-large: 11;
+//$fs-body-large: 20;
+$fs-body-large: 23;
+$fs-bump-large: 24;
+$fs-summary-large: 27;
+$fs-fine-large: 14;
+$fs-xfine-large: 11;

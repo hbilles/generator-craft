@@ -11,72 +11,72 @@ h6 {
 h1,
 h2 {
 	text-align: center;
-	@include font-sans-alt();
+	@include font-sans();
 }
 
 h3,
 h4,
 h5,
 h6 {
-	@include font-sans-alt(900);
+	@include font-sans(700);
 	text-transform: uppercase;
 }
 
 h1 {
-	@include font-sans-alt();
-	font-size: em($heading-1-small);
+	@include font-sans();
+	font-size: em($fs-h1-small);
 	line-height: 1.1em;
 	margin: 0 0 .375em;
 
-	@media screen and (min-width: $site-width-medium) {
-		font-size: em($heading-1-medium);
+	@include media($medium) {
+		font-size: em($fs-h1-medium);
 		margin: 0 0 .5em;
 	}
 
-	@media screen and (min-width: $site-width-large) {
-		font-size: em($heading-1-large);
+	@include media($large) {
+		font-size: em($fs-h1-large);
 		margin: 0 0 .3em;
 	}
 }
 
 h2 {
-	font-size: em($heading-2-small);
+	font-size: em($fs-h2-small);
 	margin: 0 0 .45em;
 
-	@media screen and (min-width: $site-width-medium) {
-		font-size: em($heading-2-medium);
+	@include media($medium) {
+		font-size: em($fs-h2-medium);
 	}
 
-	@media screen and (min-width: $site-width-large) {
-		font-size: em($heading-2-large);
+	@include media($large) {
+		font-size: em($fs-h2-large);
 	}
 }
 
 h3 {
-	font-size: em($heading-3-small);
+	font-size: em($fs-h3-small);
 	letter-spacing: 1px;
 	//margin: 0 0 .35em;
 	margin: .94em 0 .625em;
 
-	@media screen and (min-width: $site-width-medium) {
-		font-size: em($heading-3-medium);
+	@include media($medium) {
+		font-size: em($fs-h3-medium);
 	}
 }
 
 h4 {
-	font-size: em($heading-4-small);
+	font-size: em($fs-h4-small);
 	margin: 1.5em 0 .375em;
 
-	@media screen and (min-width: $site-width-medium) {
-		font-size: em($heading-4-medium);
+	@include media($medium) {
+		font-size: em($fs-h4-medium);
 	}
 }
 
 h5 {
-	font-size: em($heading-5-small);
+	font-size: em($fs-h5-small);
 	margin: 0 0 .375em;
 
-	@media screen and (min-width: $site-width-medium) {
-		font-size: em($heading-5-medium);
+	@include media($medium) {
+		font-size: em($fs-h5-medium);
 	}
 }

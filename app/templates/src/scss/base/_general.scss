@@ -1,12 +1,12 @@
 // --------------------------------------------------------------------------
 // html
 
-* {
-	box-sizing: inherit;
-}
-
 html {
 	box-sizing: border-box;
+}
+
+* {
+	box-sizing: inherit;
 }
 
 html,
@@ -16,7 +16,7 @@ body {
 
 body {
 	@include font-sans();
-	color: $color-text;
+	color: $clr-ui-text;
 }
 
 
@@ -40,27 +40,15 @@ li {
 }
 
 p, li {
-	font-size: em($bump-small);
+	font-size: rem($fs-bump-small);
 	line-height: 1.5;
 
-	p, li {
-		font-size: 1em;
+	@include media($medium) {
+		font-size: rem($fs-bump-medium);
 	}
 
-	@media screen and (min-width: $site-width-medium) {
-		font-size: em($bump-medium);
-
-		p, li {
-			font-size: 1em;
-		}
-	}
-
-	@media screen and (min-width: $site-width-large) {
-		font-size: em($body-large);
-
-		p, li {
-			font-size: 1em;
-		}
+	@include media($large) {
+		font-size: rem($fs-body-large);
 	}
 }
 
@@ -75,12 +63,12 @@ figure {
 figcaption {
 	margin: .5rem 0 0;
 
-	color: $medium-grey;	
-	font-size: rem($fineprint-small);
+	color: $clr-medium-grey;	
+	font-size: rem($fs-fine-small);
 	text-align: center;
 
 	@include media($medium) {
-		font-size: rem($fineprint-large)
+		font-size: rem($fs-fine-large)
 	}
 
 	p {
@@ -100,32 +88,32 @@ blockquote {
 	p {
 		margin: 0 0 1em;
 		padding: 0 7%;
-		font-size: em($bump-small);
+		font-size: rem($fs-bump-small);
 		line-height: 1.6;
 
-		@media screen and (min-width: $site-width-medium) {
-			font-size: em($bump-medium);
+		@include media($medium) {
+			font-size: em($fs-bump-medium);
 			padding: 0 5%;
 		}
 
-		@media screen and (min-width: $site-width-large) {
-			font-size: em($bump-large);
+		@include media($large) {
+			font-size: em($fs-bump-large);
 			padding: 0 7%;
 		}
 	}
 
 	.source {
 		@include font-sans();
-		font-size: em($fineprint-small);
+		font-size: em($fs-fine-small);
 		font-style: normal;
 
-		@media screen and (min-width: $site-width-medium) {
-			font-size: em($body-small);
+		@include media($medium) {
+			font-size: em($fs-body-small);
 		}
 	}
 
 	.author {
-		@include font-sans-alt(900);
+		@include font-sans(700);
 		display: block;
 	}
 }

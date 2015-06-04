@@ -10,13 +10,13 @@ footer#meta {
 	li,
 	address,
 	.phone {
-		font-size: em($body-small);
+		font-size: em($fs-body-small);
 		line-height: 1.4;
 	}
 }
 
 .footer-heading {
-	font-size: em($heading-4-small);
+	font-size: em($fs-h4-small);
 	margin-top: 0;
 }
 
@@ -50,13 +50,13 @@ footer#meta {
 }
 
 .footer-contact {
-	@media screen and (min-width: $site-width-medium) {
+	@include media($medium) {
 		display: inline-block;
 		vertical-align: top;
 		width: 48%;
 	}
 
-	@media screen and (min-width: $site-width-large) {
+	@include media($large) {
 		width: 20%;
 	}
 
@@ -74,14 +74,14 @@ footer#meta {
 	margin: 0 1em;
 	padding: 2em 0;
 
-	@media screen and (min-width: $site-width-medium) {
-		width: $content-width-medium;
+	@include media($medium) {
+		width: $width-medium;
 		margin: 0 auto;
 		padding: 3em 0 0;
 	}
 
-	@media screen and (min-width: $site-width-large) {
-		width: $content-width-large;
+	@include media($large) {
+		width: $width-large;
 	}
 }
 
@@ -91,25 +91,25 @@ footer#meta {
 	.footer-in {
 		border-top: 1px solid rgba(255, 255, 255, .3);
 
-		@media screen and (min-width: $site-width-medium) {
+		@include media($medium) {
 			padding: 2em 0 1em;
 		}
 	}
 
 	.copyright,
 	.credits {
-		font-size: em($fineprint-small);
+		font-size: em($fs-fine-small);
 	}
 }
 
 .copyright {
-	@media screen and (min-width: $site-width-medium) {
+	@include media($medium) {
 		float: left;
 	}
 }
 
 .credits {
-	@media screen and (min-width: $site-width-medium) {
+	@include media($medium) {
 		float: right;
 	}
 }

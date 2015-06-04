@@ -4,7 +4,7 @@
 .section {
 
 	&:nth-child(odd) {
-		//background-color: $off-white;
+		//background-color: $clr-off-white;
 	}
 }
 
@@ -23,6 +23,16 @@
 
 	margin: 0 1em;
 	padding: 2em 0;
+
+	@include media($medium) {
+		width: $width-medium;
+		margin: 0 auto;
+		padding: 3em 0;
+	}
+
+	@include media($large) {
+		width: $width-large;
+	}
 
 	& > *:first-child {
 		margin-top: 0;
@@ -52,10 +62,15 @@
 	margin: 0 0 1.5em;
 	@include font-sans();
 	text-transform: uppercase;
-	font-size: em($heading-3-small);
+	font-size: em($fs-h3-small);
 	letter-spacing: 1px;
 	
-	color: $light-grey;
+	color: $clr-light-grey;
+
+	@include media($medium) {
+		margin: 0 0 1.5em;
+		font-size: em($fs-h3-medium);
+	}
 }
 
 .section-summary {
@@ -63,43 +78,14 @@
 
 	p,
 	li {
-		font-size: em($summary-small);
-		font-weight: 600;
+		font-size: rem($fs-summary-small);
 
-		@media screen and (min-width: $site-width-medium) {
-			font-size: em($summary-medium);
+		@include media($medium) {
+			font-size: rem($fs-summary-medium);
 		}
 
-		@media screen and (min-width: $site-width-large) {
-			font-size: em($summary-large);
+		@include media($large) {
+			font-size: rem($fs-summary-large);
 		}
-	}
-}
-
-
-// --------------------------------------------------------------------------
-// medium styles
-
-@media screen and (min-width: $site-width-medium) {
-
-	.section-in {
-		width: $content-width-medium;
-		margin: 0 auto;
-		padding: 3em 0;
-	}
-
-	.section-subHeading {
-		margin: 0 0 1.5em;
-		font-size: em($heading-3-medium);
-	}
-}
-
-// --------------------------------------------------------------------------
-// large styles
-
-@media screen and (min-width: $site-width-large) {
-
-	.section-in {
-		width: $content-width-large;
 	}
 }

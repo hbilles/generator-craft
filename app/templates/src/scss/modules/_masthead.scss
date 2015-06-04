@@ -7,20 +7,19 @@
 	top: 0;
 	transition: top .2s ease-in-out;
 	width: 100%;
-	//max-width: $xLarge-val;
-	background: $white;
+	background: $clr-white;
 	background: hsla(0, 100%, 100%, .96);
 	//box-shadow: 0 0 0 1px rgba(0, 0, 0, .05), 0 5px 25px -5px rgba(0, 0, 0, .15);
-	border-bottom: 1px solid $lightest-grey;
+	border-bottom: 1px solid $clr-lightest-grey;
 
 	&.masthead-up {
 		top: -3.625rem; //masthead height
 
-		@media screen and (min-width: $site-width-medium) {
+		@include media($medium) {
 			top: -6.875rem;
 		}
 
-		@media screen and (min-width: $site-width-large) {
+		@include media($large) {
 			top: -5.625rem;
 		}
 	}
@@ -30,14 +29,13 @@
 	position: relative;
 	margin: 0 1em;
 
-	@media screen and (min-width: $site-width-medium) {
-		width: $content-width-medium;
+	@include media($medium) {
+		width: $width-medium;
 		margin: 0 auto;
 	}
 
-	@media screen and (min-width: $site-width-large) {
-		//width: 16em;
-		width: $content-width-large;
+	@include media($large) {
+		width: $width-large;
 	}
 }
 
@@ -48,12 +46,12 @@
 	
 	font-size: 1em;
 
-	@media screen and (min-width: $site-width-medium) {
+	@include media($medium) {
 		width: 14em;
 		margin: 0 auto;
 	}
 
-	@media screen and (min-width: $site-width-large) {
+	@include media($large) {
 		width: 16em;
 		margin: 0;
 	}
@@ -62,13 +60,12 @@
 		display: block;
 		padding: 1em 0;
 
-		@media screen and (min-width: $site-width-large) {
+		@include media($large) {
 			padding: 1.5em 0;
 		}
 	}
 
 	img {
-		//@include transition(all 0.2s ease-in-out);
 		max-width: 100%;
 	}
 }
@@ -86,10 +83,10 @@
 	font-size: 1em;
 	line-height: 1;
 
-	border-left: 1px solid rgba($white, .3);
-	border-right: 1px solid rgba($white, .3);
+	border-left: 1px solid rgba($clr-white, .3);
+	border-right: 1px solid rgba($clr-white, .3);
 
-	@media screen and (min-width: $site-width-medium) {
+	@include media($medium) {
 		display: none;
 	}
 	
@@ -106,26 +103,26 @@
 
 		&:link,
 		&:visited {
-			color: $color-link-hover;
+			color: $clr-ui-link-hover;
 		}
 
 		&:hover,
 		&:visited:hover {
-			color: $color-link;
+			color: $clr-ui-link;
 		}
 
 		&:before {
 			@extend %icon-menu;
 		}
 
-		@media screen and (min-width: $site-width-medium) {
+		@include media($medium) {
 			font-size: 1.9em;
 		} 
 	}
 }
 
 .body-menuOpen {
-	background-color: $color-link-hover;
+	background-color: $clr-ui-link-hover;
 
 	#masthead {
 		position: absolute;
@@ -137,13 +134,12 @@
 	}
 
 	#masthead-menuTrigger {
-		background-color: $color-link-hover;
-		//border-color: rgba(255, 255, 255, .3);
+		background-color: $clr-ui-link-hover;
 
 		a {
 			&:link,
 			&:visited {
-				color: $white;
+				color: $clr-white;
 			}
 		}
 	}	

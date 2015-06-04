@@ -12,7 +12,7 @@
 		}
 
 		p {
-			font-size: em($body-medium);
+			font-size: em($fs-body-medium);
 		}
 	}
 }
@@ -24,15 +24,3 @@
 	}
 }
 
-/*
-.contact-info {
-	@media screen and (min-width: $site-width-medium) {
-		width: 30%;
-		float: right;
-	}
-
-	@media screen and (min-width: $site-width-large) {
-		width: 24%;
-	}
-}
-*/

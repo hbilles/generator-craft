@@ -5,6 +5,9 @@ $medium-val:    41em;
 $large-val:     61em;
 $xLarge-val:    79em;
 
+$width-medium: $medium-val - 2em;
+$width-large:  $large-val - 2em;
+
 $smallPlus: new-breakpoint(min-width $smallPlus-val 6);
 $medium:    new-breakpoint(min-width $medium-val 8);
 $large:     new-breakpoint(min-width $large-val 12);
