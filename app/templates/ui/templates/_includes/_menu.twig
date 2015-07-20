@@ -1,5 +1,12 @@
 <nav id="{{ id }}" class="menu-primary{% if class is defined %} {{ class }}{% endif %}" itemscope itemtype="http://schema.org/SiteNavigationElement">
 	<div class="inner">
+		{# TODO: integrate animated hamburger icon into menu behavior
+		<button class="hidden">
+			<span class="c-hamburger c-hamburger--htx"><span></span></span>
+			<span class="label"></span>
+		</button>
+		#}
+
 		<ul>
 			<li class="link-home">
 				<a href="/" title="Home"{% if craft.request.getSegment(1) == '' %} class="current"{% endif %} itemprop="url">

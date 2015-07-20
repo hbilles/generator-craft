@@ -13,6 +13,8 @@
   },
   "browser": {
     "jquery": "./node_modules/jquery/dist/jquery.js",
+    "lodash": "./node_modules/lodash",
+    "chosen": "./src/js/vendor/chosen.customized.jquery.js",
     "fitVids": "./src/js/vendor/jquery.fitvids.js",
     "wolfy87-eventemitter": "./node_modules/imagesloaded/node_modules/wolfy87-eventemitter/EventEmitter.js",
     "eventie": "./node_modules/imagesloaded/node_modules/eventie/eventie.js",
@@ -21,7 +23,9 @@
     "owlCarousel": "./node_modules/owl.carousel/dist/owl.carousel.js",
     "placeholder": "./src/js/vendor/jquery.placeholder.js",
     "validate": "./src/js/vendor/jquery.validate.js",
-    "validateAdditional": "./src/js/vendor/jquery.validate.additional.js"
+    "validateAdditional": "./src/js/vendor/jquery.validate.additional.js",
+    "velocity": "./node_modules/velocity-animate/velocity.js",
+    "velocity-ui": "./node_modules/velocity-animate/velocity.ui.js"
   },
   "browserify-shim": {
     "owlCarousel": {
@@ -57,7 +61,7 @@
   },
   "devDependencies": {
     "browser-sync": "~2.7.10",
-    "browserify": "~8.1.3",
+    "browserify": "9.0.4",
     "browserify-shim": "~3.8.8",
     "gulp": "~3.9.0",
     "gulp-autoprefixer": "~2.3.1",
@@ -81,7 +85,9 @@
   "dependencies": {
     "imagesLoaded": "desandro/imagesloaded",
     "jquery": "^1.11.1",
+    "lodash": "^3.9.3",
     "owlCarousel": "OwlFonk/OwlCarousel2",
-    "respond": "scottjehl/Respond"
+    "respond": "scottjehl/Respond",
+    "velocity-animate": "^1.2.2"
   }
 }

@@ -1,8 +1,10 @@
 var	mobileMenu         = require('./mobileMenu'),
+	masthead           = require('./masthead'),
 	responsiveVideo    = require('./responsiveVideo'),
 	carousel           = require('./carousel'),
 	setMatchHeight     = require('./setMatchHeight'),
 	loadForms          = require('./loadForms'),
 	setValidation      = require('./setValidation'),
 	setPlaceholders    = require('./setPlaceholders'),
+	chosenSelect       = require('./chosenSelect'),
 	waves              = require('./vendor/waves');
