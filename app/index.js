@@ -7,7 +7,7 @@ var yeoman = require('yeoman-generator'),
 	spawn  = require('child_process').spawn;
 
 var craftVersionMinor = '2.4',
-	craftVersion      = craftVersionMinor + '.2669',
+	craftVersion      = craftVersionMinor + '.2675',
 	craftZipFile      = 'Craft-' + craftVersion + '.zip';
 
 
