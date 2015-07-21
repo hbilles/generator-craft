@@ -25,14 +25,14 @@ return array(
 	'<%= domainName %>.<%= stagingDomain %>' => array(
 		'environmentVariables'	=> array(
 			'basePath' => '../public/',
-			'baseUrl' => 'http://<%= domainName %>.<%= stagingDomain %>'
+			'baseUrl' => 'http://<%= domainName %>.<%= stagingDomain %>/'
 		)
 	),
 
 	'<%= domainName %>.<%= productionTLD %>' => array(
 		'environmentVariables'	=> array(
 			'basePath' => '../public/',
-			'baseUrl' => 'http://<%= domainName %>.<%= productionTLD %>'
+			'baseUrl' => 'http://<%= domainName %>.<%= productionTLD %>/'
 		)
 	),
 
