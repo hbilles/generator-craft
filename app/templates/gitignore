@@ -1,5 +1,6 @@
 public/images/cache/*
 !public/images/cache/index.html
+public/ui/build/*
 
 .sass-cache/*
 public/ui/.sass-cache/*
