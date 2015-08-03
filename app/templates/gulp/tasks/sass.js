@@ -19,6 +19,7 @@ gulp.task('sass', function() {
 gulp.task('sassWatch', function() {
 	return gulp.src('./src/scss/*.scss')
 		.pipe(sass())
+		.on('error', handleErrors)
 		.pipe(autoprefixer({ browsers: ['last 2 versions'], cascade: false }))
 		.pipe(minify())
 		.pipe(gulp.dest('./public/ui/build/css'))
