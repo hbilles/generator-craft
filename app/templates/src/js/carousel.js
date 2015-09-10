@@ -1,7 +1,7 @@
 var $            = require('jquery'),
 	imagesLoaded = require('imagesLoaded'),
 	owlCarousel  = require('owlCarousel'),
-	mq           = require('./mediaQueries');
+	mq           = require('./media-queries');
 
 
 if ( $(window).width() >= mq.px.medium ) {

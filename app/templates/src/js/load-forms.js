@@ -2,7 +2,7 @@
 // load forms from javascript templates
 
 var $             = require('jquery'),
-	setValidation = require('./setValidation');
+	setValidation = require('./set-validation');
 
 // TODO: refactor for IE8 support?
 var formTemplates = document.querySelectorAll('script[data-type="form"]'),
