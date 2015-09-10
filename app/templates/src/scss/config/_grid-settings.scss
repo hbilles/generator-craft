@@ -1,21 +1,21 @@
 @import "../../node_modules/node-neat/node_modules/bourbon-neat/app/assets/stylesheets/neat-helpers";
 
-$smallPlus-val: 31em;
+$smallplus-val: 31em;
 $medium-val:    41em;
 $large-val:     61em;
-$xLarge-val:    79em;
+$xlarge-val:    79em;
 
 $width-medium: $medium-val - 2em;
 $width-large:  $large-val - 2em;
 
-$smallPlus: new-breakpoint(min-width $smallPlus-val 6);
+$smallplus: new-breakpoint(min-width $smallplus-val 6);
 $medium:    new-breakpoint(min-width $medium-val 8);
 $large:     new-breakpoint(min-width $large-val 12);
-$xLarge:    new-breakpoint(min-width $xLarge-val 16);
+$xlarge:    new-breakpoint(min-width $xlarge-val 16);
 
-$smallPlusOnly: new-breakpoint(min-width $smallPlus-val max-width $medium-val 6);
-$mediumOnly:    new-breakpoint(min-width $medium-val max-width $large-val 8);
-$largeOnly:     new-breakpoint(min-width $large-val max-width $xLarge-val 12);
+$smallplus-only: new-breakpoint(min-width $smallplus-val max-width $medium-val 6);
+$medium-only:    new-breakpoint(min-width $medium-val max-width $large-val 8);
+$large-only:     new-breakpoint(min-width $large-val max-width $xlarge-val 12);
 
 
 // --------------------------------------------------------------------------

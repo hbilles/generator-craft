@@ -2,8 +2,9 @@
 // links
 
 a {
-	text-decoration: none;
 	@include transition(all 0.2s ease-in-out);
+
+	text-decoration: none;
 
 	&:link {
 		color: $clr-ui-link;
@@ -49,5 +50,6 @@ a {
 
 a img {
 	border: none;
+	
 	text-decoration: none;
 }

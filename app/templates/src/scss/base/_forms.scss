@@ -18,11 +18,12 @@ form {
 			position: relative;
 
 			&:before {
-				content: '*';
-				display: block;
 				position: absolute;
 				left: -.75em;
 				top: .3em;
+				
+				content: '*';
+				display: block;
 
 				color: $clr-ui-warning;
 
@@ -44,6 +45,7 @@ fieldset {
 
 label {
 	display: block;
+	
 	margin: 0 0 .5em;
 
 	font-weight: bold;
@@ -51,21 +53,25 @@ label {
 
 	.help {
 		margin: 0 0 0 .5em;
+		
 		font-size: inherit;
 		font-weight: normal;
 	}
 
 	&.error {
 		margin: .5em 0 0;
+		
 		color: $clr-ui-warning;
+		
 		text-transform: none;
 		font-weight: normal;
 	}
 
 	span {
-		font-size: 80%;
-		opacity: .75;
 		display: inline-block;
+		opacity: .75;
+		
+		font-size: 80%;
 	}
 }
 
@@ -80,11 +86,12 @@ input[type='url'],
 input[type='number'],
 textarea,
 select {
-	color: $clr-dark-grey;
-	background-color: $clr-white;
+	@include appearance(none);
+
 	border: 1px solid $clr-lighter-grey;
 
-	@include appearance(none);
+	color: $clr-dark-grey;
+	background-color: $clr-white;
 }
 
 ::-webkit-placeholder {
@@ -112,32 +119,33 @@ select,
 textarea {
 	padding: .5em;
 	width: 100%;
+	max-width: 30em;
 
 	line-height: 1.4;
-
-	max-width: 30em;
 }
 
 input.error,
 textarea.error,
 select.error {
-	color: $clr-ui-warning;
 	border: 1px solid $clr-ui-warning;
+
+	color: $clr-ui-warning;
 	background-color: pink;
 }
 
 span.error {
 	display: block;
 	margin: .5em 0 0;
-	font-size: em($fs-body-small);
+	
 	color: $clr-ui-warning;
+	
+	font-size: em($fs-body-small);
 }
 
 select {
 	padding: .5em;
 	width: 100%;
 	max-width: 30em;
-
 	border-radius: 0;
 }
 
@@ -146,50 +154,48 @@ select {
 }
 
 %button {
+	@extend %z-depth-1;
 	@include transition(all 0.2s ease-in-out);
+	@include font-sans(700);
 
-	//margin: 1em 0;
+	overflow: visible;
+
 	margin: .5em 0;
 	padding: .5em 1em;
-
-	text-align: center;
-
-	line-height: 1.4;
-
-	@include font-sans(700);
-	font-size: rem($fs-fine-small);
-	text-transform: uppercase;
-	letter-spacing: 1px;
+	//border: 1px solid $clr-ui-link;
+	border: none;
+	border-radius: $radius-xsmall;
+	cursor: pointer;
 
 	color: $clr-white;
 	background-color: $clr-ui-link;
-	//border: 1px solid $clr-ui-link;
-	border: none;
-
-	border-radius: $radius-xsmall;
-
-	cursor: pointer;
-	overflow: visible;
 	// Gets rid of tap active state
 	-webkit-tap-highlight-color: transparent;
 
-	@extend %z-depth-1;
+	font-size: rem($fs-fine-small);
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	line-height: 1.4;
+	text-align: center;
 
 	&:link,
 	&:visited {
+		@extend %z-depth-1;
+		
+		//border: 1px solid $clr-ui-link;
+		
 		color: $clr-white;
 		background-color: $clr-ui-link;
-		//border: 1px solid $clr-ui-link;
-
-		@extend %z-depth-1;
 	}
+
 	&:hover,
 	&:visited:hover {
-		color: $clr-white;
-		background-color: $clr-ui-link-hover;
+		@extend %z-depth-1-half;
+		
 		//border: 1px solid $clr-ui-link-hover;
 
-		@extend %z-depth-1-half;
+		color: $clr-white;
+		background-color: $clr-ui-link-hover;
 	}
 
 	&::-moz-focus-inner {
@@ -199,7 +205,8 @@ select {
 
 button,
 .button {
-	display: inline-block;
 	@extend %button;
+
+	display: inline-block;
 }
 

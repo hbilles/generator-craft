@@ -16,6 +16,7 @@ body {
 
 body {
 	@include font-sans();
+	
 	color: $clr-ui-text;
 }
 
@@ -64,6 +65,7 @@ figcaption {
 	margin: .5rem 0 0;
 
 	color: $clr-medium-grey;	
+	
 	font-size: rem($fs-fine-small);
 	text-align: center;
 
@@ -72,38 +74,44 @@ figcaption {
 	}
 
 	p {
-		font-size: 1em;
 		margin: 0;
+
+		font-size: 1em;
 	}
 }
 
 blockquote {
+	@include font-serif(400, italic);
+
 	margin: 2em 0;
 	padding: 1.5em 0 .25em;
 	quotes: '“' '”' '‘' '’';
 
-	@include font-serif(400, italic);
 	text-align: center;
 
 	p {
 		margin: 0 0 1em;
 		padding: 0 7%;
+		
 		font-size: rem($fs-bump-small);
 		line-height: 1.6;
 
 		@include media($medium) {
-			font-size: em($fs-bump-medium);
 			padding: 0 5%;
+
+			font-size: em($fs-bump-medium);
 		}
 
 		@include media($large) {
-			font-size: em($fs-bump-large);
 			padding: 0 7%;
+
+			font-size: em($fs-bump-large);
 		}
 	}
 
 	.source {
 		@include font-sans();
+		
 		font-size: em($fs-fine-small);
 		font-style: normal;
 
@@ -114,6 +122,7 @@ blockquote {
 
 	.author {
 		@include font-sans(700);
+		
 		display: block;
 	}
 }
