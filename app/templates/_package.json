@@ -19,7 +19,7 @@
     "wolfy87-eventemitter": "./node_modules/imagesloaded/node_modules/wolfy87-eventemitter/EventEmitter.js",
     "eventie": "./node_modules/imagesloaded/node_modules/eventie/eventie.js",
     "imagesLoaded": "./node_modules/imagesloaded/imagesloaded.js",
-    "matchHeight": "./src/js/vendor/jquery.matchHeight.js",
+    "matchHeight": "./node_modules/jquery-match-height/jquery.matchHeight.js",
     "owlCarousel": "./node_modules/owl.carousel/dist/owl.carousel.js",
     "placeholder": "./src/js/vendor/jquery.placeholder.js",
     "validate": "./src/js/vendor/jquery.validate.js",
@@ -85,6 +85,7 @@
   "dependencies": {
     "imagesLoaded": "desandro/imagesloaded",
     "jquery": "^1.11.1",
+    "jquery-match-height": "^0.6.0",
     "lodash": "^3.9.3",
     "owlCarousel": "OwlFonk/OwlCarousel2",
     "respond": "scottjehl/Respond",
