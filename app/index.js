@@ -112,7 +112,16 @@ module.exports = yeoman.generators.Base.extend({
 
 		this.log('Cleaning up...');
 
-		var cleanup = spawn('rm', ['-rf', craftZipFile, 'craft/templates', 'craft/config/general.php', 'craft/config/db.php', 'public/index.php']);
+		var cleanup = spawn('rm', ['-rf',
+			craftZipFile,
+			'craft/templates',
+			'craft/config/general.php',
+			'craft/config/db.php',
+			'craft/web.config',
+			'public/index.php',
+			'public/web.config',
+			'public/htaccess'
+			]);
 
 		cleanup.stderr.on('data', function (data) {
 			this.log(chalk.red('Cleanup error: ') + data);
