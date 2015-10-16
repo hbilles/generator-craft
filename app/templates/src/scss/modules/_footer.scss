@@ -2,7 +2,7 @@
 // =footer
 
 .footer {
-	@extend %bg-darkGrey;
+	@extend %bg--dark-grey;
 }
 
 footer#meta {
@@ -15,18 +15,18 @@ footer#meta {
 	}
 }
 
-.footer-heading {
+.footer__heading {
 	font-size: em($fs-h4-small);
 	margin-top: 0;
 }
 
-.footer-about,
-.footer-nav,
-.footer-contact {
+.footer__about,
+.footer__nav,
+.footer__contact {
 	margin: 0 0 1.5em;
 }
 
-.footer-about {
+.footer__about {
 	@include media($large) {
 		display: inline-block;
 		vertical-align: top;
@@ -35,7 +35,7 @@ footer#meta {
 	}
 }
 
-.footer-nav {
+.footer__nav {
 	@include media($medium) {
 		display: inline-block;
 		vertical-align: top;
@@ -49,7 +49,7 @@ footer#meta {
 	}
 }
 
-.footer-contact {
+.footer__contact {
 	@include media($medium) {
 		display: inline-block;
 		vertical-align: top;
@@ -60,16 +60,16 @@ footer#meta {
 		width: 20%;
 	}
 
-	.socialMedia {
+	.social-media {
 		margin: 1em 0 0;
 	}
 }
 
-.footer-contact-link {
+.footer__contact-link {
 	display: block;
 }
 
-.footer-in {
+.footer__in {
 	@include clearfix;
 	margin: 0 1em;
 	padding: 2em 0;
@@ -88,7 +88,7 @@ footer#meta {
 #fineprint {
 	text-align: center;
 
-	.footer-in {
+	.footer__in {
 		border-top: 1px solid rgba(255, 255, 255, .3);
 
 		@include media($medium) {

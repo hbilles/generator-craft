@@ -1,3 +1,4 @@
-<span class="phone">
-	<span class="phone-number" itemprop="telephone">{{ number }}</span>&nbsp;<span class="phone-label">{{ label }}</span>
-</span>
+{% set rootClass = rootClass | default('contact') %}
+<p class="{{ rootClass }}__{% if label|lower == 'fax' %}fax{% else %}phone{% endif %}">
+	<span itemprop="{% if label|lower == 'fax' %}faxNumber{% else %}telephone{% endif %}">{{ number }}</span>&nbsp;<span>{{ label }}</span>
+</p>

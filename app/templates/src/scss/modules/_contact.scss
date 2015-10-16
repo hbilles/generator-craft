@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------------
 // =contact
 
-.contact-content {
+.contact__content {
 	@include media($large) {
 		width: 40%;
 		float: left;
@@ -17,7 +17,7 @@
 	}
 }
 
-.contact-form {
+.contact__form {
 	@include media($large) {
 		width: 50%;
 		float: right;

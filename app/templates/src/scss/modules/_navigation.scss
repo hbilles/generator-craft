@@ -15,7 +15,7 @@ nav {
 	}
 }
 
-.menu-mobile {
+.menu__mobile {
 
 	background-color: $clr-ui-link-hover;
 
@@ -71,11 +71,11 @@ nav {
 	}
 }
 
-.js .menu-mobile {
+.js .menu__mobile {
 	display: none;
 
 	position: absolute;
-	top: 3.625em; // Height of masthead
+	top: $mh-height-small; // Height of masthead
 	left: 0;
 	right: 0;
 	bottom: 0;
@@ -87,7 +87,7 @@ nav {
 	}
 }
 
-.menu-desktop {
+.menu__desktop {
 	display: none;
 
 	//position: absolute;
@@ -117,7 +117,7 @@ nav {
 		}
 	}
 
-	.link-home {
+	.link__home {
 		display: none;
 	}
 
@@ -137,7 +137,7 @@ nav {
 	}
 }
 
-.prevNext {
+.prev-next {
 	@include clearfix;
 	margin: 0 1em 1.5em;
 

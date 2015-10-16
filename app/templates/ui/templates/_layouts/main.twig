@@ -38,15 +38,15 @@
 
 	<div id="page"{% if pageClass is defined %} class="{{ pageClass }}"{% endif %}>
 		<header id="masthead" itemscope itemtype="http://schema.org/WPHeader">
-			<div class="masthead-in">
+			<div class="masthead__in">
 				<h1 id="logo">
 					<a href="{{ siteUrl }}" title="{{ globalVars.homeLinkTitle }}">
 						<img src="/ui/img/logo.png" alt="{{ siteName }}">
 					</a>
 				</h1>
-				<p id="masthead-menuTrigger"><a href="#menu-mobile" title="Jump to navigation menu"><span>Menu</span></a></p>
+				<p id="masthead__menu-trigger"><a href="#menu__mobile" title="Jump to navigation menu"><span>Menu</span></a></p>
 
-				{% include '_includes/_menu' with { id: 'menu-desktop', class: 'menu-desktop' } %}
+				{% include '_includes/_menu' with { id: 'menu__desktop', class: 'menu__desktop' } %}
 			</div>
 		</header>
 	
@@ -55,7 +55,7 @@
 			{% endblock %}
 		</main>
 
-		{% include '_includes/_menu' with { id: 'menu-mobile', class: 'menu-mobile' } %}
+		{% include '_includes/_menu' with { id: 'menu__mobile', class: 'menu__mobile' } %}
 	
 		{% include '_includes/_footer' %}
 

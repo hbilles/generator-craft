@@ -49,7 +49,7 @@
 // =backgrounds
 
 
-%bg-darkGrey {
+%bg--dark-grey {
 	background-color: $clr-grey-800;
 	color: $clr-off-white;
 
@@ -61,6 +61,6 @@
 	}
 }
 
-.bg-blueGrey {
-	@extend %bg-darkGrey;
+.bg--dark-grey {
+	@extend %bg-dark-grey;
 }

@@ -8,13 +8,13 @@ body {
 }
 
 #page {
-	padding-top: 3.625rem; //masthead height
+	padding-top: $mh-height-small; //masthead height
 
 	@include media($medium) {
-		padding-top: 6.875rem;
+		padding-top: $mh-height-medium;
 	}
 
 	@include media($large) {
-		padding-top: 5.625rem;
+		padding-top: $mh-height-large;
 	}
 }

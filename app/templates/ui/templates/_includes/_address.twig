@@ -1,7 +1,11 @@
-<address itemscope itemtype="http://schema.org/PostalAddress">
+{% set rootClass = rootClass | default('contact') %}
+<address class="{{ rootClass }}__address" itemscope itemtype="http://schema.org/PostalAddress">
 	<span itemprop="streetAddress">
-		{{ location.street1 }}
-		{% if location.street2 %}<br>{{ location.street2 }}{% endif %}
+		{{ location.address }}
+		{% if location.address2 %}<br>{{ location.address2 }}{% endif %}
 	</span><br>
 	<span itemprop="addressLocality">{{ location.city }}</span>&nbsp;<span itemprop="addressRegion">{{ location.state }}</span>&nbsp;<span itemprop="postalCode">{{ location.postalCode }}</span>
+	{% if location.mapLink %}
+	<br><a href="{{ location.mapLink }}">Get map &amp; directions</a>
+	{% endif %}
 </address>

@@ -1,47 +1,38 @@
-<nav id="{{ id }}" class="menu-primary{% if class is defined %} {{ class }}{% endif %}" itemscope itemtype="http://schema.org/SiteNavigationElement">
-	<div class="inner">
-		{# TODO: integrate animated hamburger icon into menu behavior
-		<button class="hidden">
-			<span class="c-hamburger c-hamburger--htx"><span></span></span>
-			<span class="label"></span>
-		</button>
+<nav id="{{ id }}" class="menu__primary{% if class is defined %} {{ class }}{% endif %}" itemscope itemtype="http://schema.org/SiteNavigationElement">
+	<ul>
+		<li class="link__home">
+			<a href="/" title="Home"{% if craft.request.getSegment(1) == '' %} class="current"{% endif %} itemprop="url">
+				<span>Home</span>
+			</a>
+		</li>
+		
+		{# TEMPLATE for nav
+		{% for about in craft.entries.section('about') %}
+		<li>
+			<a href="{{ about.url }}" title="{{ about.heading }}"{% if craft.request.getSegment(1) == 'about' %} class="current"{% endif %} itemprop="url">
+				<span class="title" itemprop="name">{{ about.title }}</span>
+				<span class="description" itemprop="description">{{ about.summary }}</span>
+			</a>
+		</li>
+		{% endfor %}
+
+		{% for services in craft.entries.section('servicesLanding') %}
+		<li>
+			<a href="{{ services.url }}" title="{{ services.heading }}"{% if craft.request.getSegment(1) == 'services' %} class="current"{% endif %} itemprop="url">
+				<span class="title" itemprop="name">{{ services.title }}</span>
+				<span class="description" itemprop="description">{{ services.summary }}</span>
+			</a>
+		</li>
+		{% endfor %}
+		
+		{% for contact in craft.entries.section('contact') %}
+		<li>
+			<a href="{{ contact.url }}" title="{{ contact.heading }}"{% if craft.request.getSegment(1) == 'contact' %} class="current"{% endif %} itemprop="url">
+				<span class="title" itemprop="name">{{ contact.title }}</span>
+				<span class="description" itemprop="description">{{ contact.summary }}</span>
+			</a>
+		</li>
+		{% endfor %}
 		#}
-
-		<ul>
-			<li class="link-home">
-				<a href="/" title="Home"{% if craft.request.getSegment(1) == '' %} class="current"{% endif %} itemprop="url">
-					<span>Home</span>
-				</a>
-			</li>
-			
-			{# TEMPLATE for nav
-			{% for about in craft.entries.section('about') %}
-			<li>
-				<a href="{{ about.url }}" title="{{ about.heading }}"{% if craft.request.getSegment(1) == 'about' %} class="current"{% endif %} itemprop="url">
-					<span class="title" itemprop="name">{{ about.title }}</span>
-					<span class="description" itemprop="description">{{ about.summary }}</span>
-				</a>
-			</li>
-			{% endfor %}
-
-			{% for services in craft.entries.section('servicesLanding') %}
-			<li>
-				<a href="{{ services.url }}" title="{{ services.heading }}"{% if craft.request.getSegment(1) == 'services' %} class="current"{% endif %} itemprop="url">
-					<span class="title" itemprop="name">{{ services.title }}</span>
-					<span class="description" itemprop="description">{{ services.summary }}</span>
-				</a>
-			</li>
-			{% endfor %}
-			
-			{% for contact in craft.entries.section('contact') %}
-			<li>
-				<a href="{{ contact.url }}" title="{{ contact.heading }}"{% if craft.request.getSegment(1) == 'contact' %} class="current"{% endif %} itemprop="url">
-					<span class="title" itemprop="name">{{ contact.title }}</span>
-					<span class="description" itemprop="description">{{ contact.summary }}</span>
-				</a>
-			</li>
-			{% endfor %}
-			#}
-		</ul>
-	</div>
+	</ul>
 </nav>

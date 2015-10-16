@@ -8,17 +8,17 @@
 	}
 }
 
-.section-intro {
+.section--intro {
 	text-align: center;
 
-	.section-in {
+	.section__in {
 		@include media($medium) {
 			padding: 6em 0;
 		}
 	}
 }
 
-.section-in {
+.section__in {
 	@include outer-container;
 
 	margin: 0 1em;
@@ -43,22 +43,22 @@
 	}
 }
 
-.section-hdr {
+.section__hdr {
 	margin: 0 0 1.625em;
 	text-align: center;
 	border-bottom: 3px solid;
 }
 
 // applied to container for actual button
-.section-button {
+.section__button {
 	text-align: center;
 }
 
-.section-ftr {
+.section__ftr {
 
 }
 
-.section-subHeading {
+.section__subheading {
 	margin: 0 0 1.5em;
 	@include font-sans();
 	text-transform: uppercase;
@@ -73,7 +73,7 @@
 	}
 }
 
-.section-summary {
+.section__summary {
 	text-align: center;
 
 	p,

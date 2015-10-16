@@ -1,19 +1,14 @@
 {% set form = craft.perform.getForm(form) %}
 {% set hiddenValue = hiddenValue|default('') %}
-{% set showTitle = showTitle|default(false) %}
 
-{% if formTitle is defined %}
-	{% set showTitle = true %}
-{% endif %}
-
-<script type="text/template" data-type="form">
+<script type="text/template" data-type="form" data-enctype="multipart/form-data">
 	{{ getCsrfInput() }}
 	<input type="hidden" name="action" value="perform/submissions/postSubmission">
 	<input type="hidden" name="redirect" value="{% if form.successRedirect %}{{ form.successRedirect }}{% else %}{{ craft.request.url }}?success=1{% endif %}">
 	<input type="hidden" name="formId" value="{{ form.id }}">
 
 	<div class="questions">
-		{% if showTitle %}<h2>{{ formTitle|default(form.name) }}</h2>{% endif %}
+		<h2>{{ formTitle|default(form.name) }}</h2>
 
 		<fieldset>
 
@@ -75,7 +70,7 @@
 
 
 					{% case 'Dropdown' %}
-						<div class="question select hide-label{% if question.required %} required{% endif %}">
+						<div class="question select{% if question.required %} required{% endif %}">
 							<label for="{{ question.handle }}">{{ question.name }}</label>
 	
 							<select
@@ -84,8 +79,6 @@
 									aria-required="true"
 									data-validation-required="'{{ question.name }}' is required"
 								{% endif %}
-								class="chosen-select"
-								data-placeholder="Select&hellip;"
 								id="{{ question.handle }}"
 								name="questions[{{ question.handle }}]">
 									<option value="">Select&hellip;</option>
@@ -132,6 +125,47 @@
 									<input type="checkbox"
 										id="{{ question.handle ~ loop.index }}"
 										name="questions[{{ question.handle }}][]"
+										value="{{ option.value }}"
+										{{ selected ? 'checked' }}>
+									<label for="{{ question.handle ~ loop.index }}">{{ option.label }}</label>
+								</li>
+							{% endfor %}
+						</ul>
+
+					{% case 'DropdownEmailRouter' %}
+						<div class="question select{% if question.required %} required{% endif %}">
+							<label for="{{ question.handle }}">{{ question.name }}</label>
+	
+							<select
+								{% if question.required %}
+									required
+									aria-required="true"
+									data-validation-required="'{{ question.name }}' is required"
+								{% endif %}
+								id="{{ question.handle }}"
+								name="questions[{{ question.handle }}]">
+									<option value="">Select&hellip;</option>
+								{% for option in question.options %}
+									{% set selected = submission is defined and submission[question.handle]
+										? submission[question.handle] == option.value
+										: option.default %}
+									<option {{ selected ? 'selected' }}>
+										{{ option.label }}
+									</option>
+								{% endfor %}
+							</select>
+						</div>
+
+					{% case 'RadioButtonsEmailRouter' %}
+						<ul class="question input-radio-buttons{% if question.required %} required{% endif %}">
+							{% for option in question.options %}
+								<li>
+									{% set selected = submission is defined and submission[question.handle]
+										? submission[question.handle] == option.value
+										: option.default %}
+									<input type="radio"
+										id="{{ question.handle ~ loop.index }}"
+										name="questions[{{ question.handle }}]"
 										value="{{ option.value }}"
 										{{ selected ? 'checked' }}>
 									<label for="{{ question.handle ~ loop.index }}">{{ option.label }}</label>
@@ -231,6 +265,21 @@
 						</div>
 
 
+					{% case 'Assets' %}
+						<div class="question input-file hide-label{% if question.required %} required{% endif %}">
+							<label for="{{ question.handle }}">{{ question.name }}</label>
+							<input type="file"
+								{% if question.required %}
+									required
+									aria-required="true"
+									data-validation-required="'{{ question.name }}' is required"
+								{% endif %}
+								class="text"
+								id="{{ question.handle }}"
+								name="questions[{{ question.handle }}]">
+						</div>
+
+
 					{# Assume only one per form and set via variable OR set via custom javascript #}
 					{% case 'Hidden' %}
 						<input type="hidden"
@@ -244,10 +293,10 @@
 			{% endfor %}
 
 			{# NOTE: this field is a honeypot to trap bot submissions #}
-			{% if form.getHoneypotFieldname() %}
-			<div style="display:none">
-				<label for="{{ form.getHoneypotFieldname() }}">Please leave this field blank</label>
-				<input type="text" name="{{ form.getHoneypotFieldname() }}">
+			{% if craft.config.perform is defined and craft.config.perform.honeypotField is defined %}
+			<div class="{{ craft.config.perform.honeypotField }}">
+				<label for="{{ craft.config.perform.honeypotField }}">Please leave this field blank</label>
+				<input type="text" name="{{ craft.config.perform.honeypotField }}">
 			</div>
 			{% endif %}
 
