@@ -1,6 +1,6 @@
-@import "../../node_modules/node-bourbon/node_modules/bourbon/app/assets/stylesheets/bourbon";
+@import "bourbon";
 @import "config/grid-settings.scss";
-@import "../../node_modules/node-neat/node_modules/bourbon-neat/app/assets/stylesheets/neat";
+@import "neat";
 
 @import "config/webfonts.scss";
 @import "config/colors.scss";
@@ -22,8 +22,6 @@
 @import "modules/masthead.scss";
 @import "modules/section.scss";
 @import "modules/navigation.scss";
-@import "modules/owl.carousel.scss";
-@import "modules/owl.theme.scss";
 @import "modules/home.scss";
 @import "modules/contact.scss";
 @import "modules/testimonial.scss";

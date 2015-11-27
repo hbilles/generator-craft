@@ -12,6 +12,12 @@ return array(
 		'defaultImageQuality'	=> 80,
 		'omitScriptNameInUrls' => true,
 		'generateTransformsAfterPageLoad' => false,
+		// custom global variables
+		'titleBullet' => '·',
+		'homeLinkTitle' => 'back to homepage',
+		'googleAnalyticsProfileId' => 'UA-XXXXXXXX-X',
+		'campaignMonitorUrl' => '',
+		'campaignMonitorEmailFieldId' => '',
 	),
 
 	'<%= domainName %>.dev' => array(

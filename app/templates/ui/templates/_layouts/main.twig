@@ -12,7 +12,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>{% if metaTitle is defined %}{{ metaTitle }} {{ globalVars.titleBullet }} {% endif %}{{ siteName }}{% if homeTitle is defined %} {{ globalVars.titleBullet }} {{ homeTitle }}{% endif %}</title>
+	<title>{% if metaTitle is defined %}{{ metaTitle }} {{ craft.config.titleBullet }} {% endif %}{{ siteName }}{% if homeTitle is defined %} {{ craft.config.titleBullet }} {{ homeTitle }}{% endif %}</title>
 	{% if metaDescription is defined %}<meta name="description" content="{{ metaDescription }}">{% endif %}
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<meta name="author" content="{{ siteName }}">
@@ -40,7 +40,7 @@
 		<header id="masthead" itemscope itemtype="http://schema.org/WPHeader">
 			<div class="masthead__in">
 				<h1 id="logo">
-					<a href="{{ siteUrl }}" title="{{ globalVars.homeLinkTitle }}">
+					<a href="{{ siteUrl }}" title="{{ craft.config.homeLinkTitle }}">
 						<img src="/ui/img/logo.png" alt="{{ siteName }}">
 					</a>
 				</h1>

@@ -1,7 +1,6 @@
 var	mobileMenu         = require('./mobile-menu'),
 	masthead           = require('./masthead'),
 	responsiveVideo    = require('./responsive-video'),
-	carousel           = require('./carousel'),
 	setMatchHeight     = require('./set-match-height'),
 	loadForms          = require('./load-forms'),
 	setValidation      = require('./set-validation'),

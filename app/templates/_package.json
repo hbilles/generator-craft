@@ -16,11 +16,10 @@
     "lodash": "./node_modules/lodash",
     "chosen": "./src/js/vendor/chosen.customized.jquery.js",
     "fitVids": "./src/js/vendor/jquery.fitvids.js",
-    "wolfy87-eventemitter": "./node_modules/imagesloaded/node_modules/wolfy87-eventemitter/EventEmitter.js",
-    "eventie": "./node_modules/imagesloaded/node_modules/eventie/eventie.js",
+    "wolfy87-eventemitter": "./node_modules/wolfy87-eventemitter/EventEmitter.js",
+    "eventie": "./node_modules/eventie/eventie.js",
     "imagesLoaded": "./node_modules/imagesloaded/imagesloaded.js",
     "matchHeight": "./node_modules/jquery-match-height/jquery.matchHeight.js",
-    "owlCarousel": "./node_modules/owl.carousel/dist/owl.carousel.js",
     "placeholder": "./src/js/vendor/jquery.placeholder.js",
     "validate": "./src/js/vendor/jquery.validate.js",
     "validateAdditional": "./src/js/vendor/jquery.validate.additional.js",
@@ -28,11 +27,6 @@
     "velocity-ui": "./node_modules/velocity-animate/velocity.ui.js"
   },
   "browserify-shim": {
-    "owlCarousel": {
-      "depends": [
-        "jquery:window.jQuery"
-      ]
-    },
     "fitVids": {
       "depends": [
         "jquery:window.jQuery"
@@ -60,35 +54,30 @@
     }
   },
   "devDependencies": {
-    "browser-sync": "~2.7.10",
-    "browserify": "9.0.4",
-    "browserify-shim": "~3.8.8",
-    "gulp": "~3.9.0",
-    "gulp-autoprefixer": "~2.3.1",
-    "gulp-changed": "~1.2.1",
-    "gulp-minify-css": "~1.1.6",
-    "gulp-notify": "~2.2.0",
-    "gulp-open": "~0.3.2",
-    "gulp-rename": "~1.2.2",
-    "gulp-sass": "~2.0.1",
-    "gulp-shell": "^0.4.2",
-    "gulp-streamify": "~0.0.5",
-    "gulp-uglify": "~1.2.0",
-    "gulp-util": "~3.0.5",
-    "node-bourbon": "~4.2.3",
+    "browser-sync": "^2.10.0",
+    "browserify": "12.0.1",
+    "browserify-shim": "^3.8.11",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-if": "^2.0.0",
+    "gulp-load-plugins": "^1.1.0",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-sass": "^2.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "node-bourbon": "^4.2.3",
     "node-neat": "^1.7.2",
-    "pretty-hrtime": "~1.0.0",
-    "vinyl-source-stream": "~1.0.0",
-    "vinyl-transform": "~1.0.0",
-    "watchify": "~3.2.2"
+    "rimraf": "^2.4.4",
+    "run-sequence": "^1.1.5",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "yargs": "^3.30.0"
   },
   "dependencies": {
-    "imagesLoaded": "desandro/imagesloaded",
-    "jquery": "^1.11.1",
+    "imagesloaded": "^3.2.0",
+    "jquery": "^2.1.4",
     "jquery-match-height": "^0.6.0",
-    "lodash": "^3.9.3",
-    "owlCarousel": "OwlFonk/OwlCarousel2",
-    "respond": "scottjehl/Respond",
-    "velocity-animate": "^1.2.2"
+    "lodash": "^3.10.1",
+    "velocity-animate": "^1.2.3"
   }
 }

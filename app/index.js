@@ -156,17 +156,12 @@ module.exports = yeoman.generators.Base.extend({
 				}
 			);
 
-			this.directory('gulp', 'gulp');
 			this.fs.copyTpl(
-				this.templatePath('_browserSync.js'),
-				this.destinationPath('gulp/tasks/browserSync.js'),
+				this.templatePath('_gulpfile.js'),
+				this.destinationPath('gulpfile.js'),
 				{
 					domainName: this.props.domainName
 				}
-			);
-			this.fs.copy(
-				this.templatePath('gulpfile.js'),
-				this.destinationPath('gulpfile.js')
 			);
 		},
 
