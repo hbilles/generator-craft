@@ -25,7 +25,7 @@
 
 		<div class="footer__contact">
 		{% for contact in craft.entries.section('contact') %}
-			<span class="footer-contact-link"><a href="{{ contact.url }}" title="{{ contact.summary }}">{{ contact.title }}</a></span>
+			<span class="footer__contact-link"><a href="{{ contact.url }}" title="{{ contact.summary }}">{{ contact.title }}</a></span>
 			{#
 			{% if contact.phone %}{% include '_includes/_phone' with { number: contact.phone, label: 'Phone' } %}{% endif %}
 			{% if contact.fax %}{% include '_includes/_phone' with { number: contact.fax, label: 'Fax' } %}{% endif %}

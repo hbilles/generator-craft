@@ -1,22 +1,22 @@
 {% if entry.contentBlocks|length %}
-<section class="contentBlocks {{ class|default('') }}">
+<section class="blocks {{ class|default('') }}">
 {% for block in entry.contentBlocks %}
 
 	{% switch block.type %}
 
 		{% case 'text' %}
 
-			<div class="contentBlock-text">
+			<div class="block__text">
 				{{ block.text | pd }}
 			</div>
 
 		{% case 'heading' %}
 
-			<h2>{{ block.heading }}</h2>
+			<h2 class="block__heading">{{ block.heading }}</h2>
 
 		{% case 'blockquote' %}
 
-			<blockquote class="contentBlock-blockquote">
+			<blockquote class="block__blockquote">
 				{{ block.quote | pd }}
 
 				{% if block.source %}
@@ -28,18 +28,18 @@
 
 		{% case 'pullquote' %}
 
-			<blockquote class="contentBlock-pullquote">
+			<blockquote class="block__pullquote">
 				{{ block.pullquote | pd }}
 			</blockquote>
 
 		{% case 'image' %}
 
 			{% for asset in block.image %}
-				<figure class="contentBlock-image">
+				<figure class="block__image">
 					<img src="{{ asset.getUrl('large') }}" alt="">
 					
 					{% if asset.caption %}
-						<figcaption class="caption">
+						<figcaption class="block__caption">
 							{{ asset.caption | pd }}
 						</figcaption>
 					{% endif %}
@@ -50,11 +50,11 @@
 
 			{% set video = craft.embedder.url(block.video) %}
 
-			<figure class="contentBlock-video">
+			<figure class="block__video">
 				{{ video.embed_code }}
 				
 				{% if block.caption %}
-					<figcaption class="caption">
+					<figcaption class="block__caption">
 						{{ block.caption | pd }}
 					</figcaption>
 				{% endif %}

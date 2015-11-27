@@ -14,12 +14,12 @@ div.cta {
 	}
 }
 
-.cta-hasForm {
+.cta--has-form {
 	@include media($large) {
 		text-align: left;
 	}
 
-	.cta-content {
+	.cta__content {
 		@include media($large) {
 			float: left;
 			width: 40%;
@@ -33,7 +33,7 @@ div.cta {
 	}
 }
 
-.cta-form {
+.cta__form {
 	max-width: 30em; // matches max-width on form inputs
 	margin-left: auto;
 	margin-right: auto;
@@ -44,7 +44,7 @@ div.cta {
 	}
 }
 
-.cta-heading {
+.cta__heading {
 	margin: .25em 0;
 
 	@include media($large) {
@@ -52,12 +52,12 @@ div.cta {
 	}
 }
 
-.cta-text {
+.cta__copy {
 	font-style: italic;
 }
 
-.cta-company,
-.cta-phone {
+.cta__company,
+.cta__phone {
 	@include media($medium) {
 		display: inline-block;
 		width: 14.4em;
@@ -71,21 +71,21 @@ div.cta {
 	}
 }
 
-.cta-company {
+.cta__company {
 	@include media($large) {
 		margin-left: 0;
 		margin-right: 3.2%;
 	}
 }
 
-.cta-phone {
+.cta__phone {
 	@include media($large) {
 		margin-left: 0;
 		margin-right: 0;
 	}
 }
 
-.cta-button {
+.cta__button {
 	margin: 2.5em 0 1.5em;
 }
 

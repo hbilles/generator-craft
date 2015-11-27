@@ -1,25 +1,25 @@
 {% set cta = cta|default(callToAction) %}
 {% set bg = bg|default('bg-color') %}
-{% set class = cta.showForm ? 'cta cta-hasForm ' ~ bg : 'cta ' ~ bg %}
+{% set class = cta.showForm ? 'cta cta--has-form ' ~ bg : 'cta ' ~ bg %}
 {% set wrapper = wrapper | default('yes') %}
 
 {% if wrapper == 'yes' %}
 <section class="{{ class }} section">
-	<div class="section-in">
+	<div class="section__in">
 {% else %}
 <div class="{{ class }}">
 {% endif %}
-		<div class="cta-content">
-			<h2 class="cta-heading">{{ cta.heading }}</h2>
+		<div class="cta__content">
+			<h2 class="cta__heading">{{ cta.heading }}</h2>
 			{% if cta.copy %}
-			<div class="cta-text">
+			<div class="cta__copy">
 				{{ cta.copy | pd }}
 			</div>
 			{% endif %}
 		</div>
 
 		{% if cta.showForm %}
-		<div class="cta-form">
+		<div class="cta__form">
 			{% include '_includes/_form' with { form: cta.form } %}
 		</div>
 		{% else %}
