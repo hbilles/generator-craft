@@ -6,9 +6,12 @@ var yeoman = require('yeoman-generator'),
 	mkdirp = require('mkdirp'),
 	spawn  = require('child_process').spawn;
 
-var craftVersionMinor = '2.4',
-	craftVersion      = craftVersionMinor + '.2702',
-	craftZipFile      = 'Craft-' + craftVersion + '.zip';
+var craftVersionMinor = '2.5',
+	craftVersion      = craftVersionMinor + '.2752',
+	craftZipFile      = 'Craft-' + craftVersion + '.zip',
+	parsedownUnzipped = 'Parsedown-master',
+	parsedownFolder   = parsedownUnzipped + '/parsedown',
+	parsedownZipFile  = 'master.zip';
 
 
 module.exports = yeoman.generators.Base.extend({
@@ -107,6 +110,69 @@ module.exports = yeoman.generators.Base.extend({
 		});
 	},
 
+	downloadingParsedown: function() {
+		var done = this.async();
+
+		var options = {
+			url: 'https://github.com/pixelandtonic/Parsedown/archive/master.zip',
+			verbose: true,
+			encoding: null,
+			'remote-name': true
+		};
+
+		this.log('Downloading Parsedown plugin zip archive...');
+
+		curl.request(options, function (err, file) {
+
+			console.log('About to unzip Parsedown...');
+
+			var unzip = spawn('unzip', [parsedownZipFile]);
+
+			unzip.stdout.on('data', function (data) {
+				console.log('Unzipping!');
+			});
+
+			unzip.stderr.on('data', function (data) {
+				console.log(chalk.red('Unzipping Parsedown Error: ') + data);
+			});
+
+			unzip.on('close', function (code) {
+				if (code !== 0) {
+					console.log('Unzipping Parsedown exited with code ' + code);
+				} else {
+					console.log('Finished unzipping Parsedown!');
+				}
+
+				done();
+			});
+		});
+	},
+
+	copyingParsedown: function() {
+		var done = this.async();
+
+		this.log('Copying Parsedown to plugin folder...');
+
+		var copying = spawn('cp', ['-r',
+			parsedownFolder,
+			'craft/plugins'
+			]);
+
+		copying.stderr.on('data', function (data) {
+			this.log(chalk.red('Copying Parsedown error: ') + data);
+		}.bind(this));
+
+		copying.on('close', function (code) {
+			if (code !== 0) {
+				console.log('Copying Parsedown exited with code ' + code);
+			} else {
+				console.log('Finished copying Parsedown!');
+			}
+
+			done();
+		});
+	},
+
 	cleaning: function() {
 		var done = this.async();
 
@@ -118,14 +184,15 @@ module.exports = yeoman.generators.Base.extend({
 			'craft/config/general.php',
 			'craft/config/db.php',
 			'craft/web.config',
-			'public/index.php',
 			'public/web.config',
-			'public/htaccess'
+			'public/htaccess',
+			parsedownZipFile,
+			parsedownUnzipped
 			]);
 
 		cleanup.stderr.on('data', function (data) {
 			this.log(chalk.red('Cleanup error: ') + data);
-		});
+		}.bind(this));
 
 		done();
 	},
@@ -193,11 +260,6 @@ module.exports = yeoman.generators.Base.extend({
 				this.destinationPath('public/.htaccess')
 			);
 
-			this.fs.copy(
-				this.templatePath('index.php'),
-				this.destinationPath('public/index.php')
-			);
-
 			this.directory('ui', 'public/ui');
 			mkdirp('public/images/cache', function(err) {
 				if (err) {
@@ -206,6 +268,8 @@ module.exports = yeoman.generators.Base.extend({
 					console.log('Created image cache directory.');
 				}
 			});
+
+			this.directory('templates', 'craft/templates');
 
 			this.directory('src', 'src');
 
