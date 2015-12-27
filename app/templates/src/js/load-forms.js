@@ -3,7 +3,7 @@
 
 var $             = require('jquery'),
 	setValidation = require('./set-validation'),
-	pushEvent     = require('./pushEvent');
+	pushEvent     = require('./push-event');
 
 
 var formTemplates  = document.querySelectorAll('script[data-type="form"]'),
