@@ -6,12 +6,12 @@ var yeoman = require('yeoman-generator'),
 	mkdirp = require('mkdirp'),
 	spawn  = require('child_process').spawn;
 
-var craftVersionMinor = '2.5',
-	craftVersion      = craftVersionMinor + '.2754',
-	craftZipFile      = 'Craft-' + craftVersion + '.zip',
+var craftZipFile      = 'tmp/Craft.zip',
+	craftUrl          = 'http://download.buildwithcraft.com/latest.zip?accept_license=yes',
 	parsedownUnzipped = 'Parsedown-master',
 	parsedownFolder   = parsedownUnzipped + '/parsedown',
-	parsedownZipFile  = 'master.zip';
+	parsedownZipFile  = 'master.zip',
+	parsedownUrl      = 'https://github.com/pixelandtonic/Parsedown/archive/master.zip';
 
 
 module.exports = yeoman.generators.Base.extend({
@@ -52,9 +52,8 @@ module.exports = yeoman.generators.Base.extend({
 			},
 			{
 				type: 'input',
-				name: 'craftVersion',
-				message: 'What is the ' + chalk.underline('current version of Craft') + '?',
-				default: craftVersion
+				name: 'acceptTerms',
+				message: "Do you accept Craft's license? [http://buildwithcraft.com/license]",
 			}
 		];
 
@@ -62,13 +61,12 @@ module.exports = yeoman.generators.Base.extend({
 			this.props = props;
 			// To access props later use this.props.someOption;
 
-			craftVersion = props.craftVersion;
-
-			var versionArray = craftVersion.split('.');
-			craftVersionMinor = versionArray[0] + '.' + versionArray[1];
-			craftZipFile = 'Craft-' + craftVersion + '.zip';
+			if (this.props.acceptTerms === 'y' || this.props.acceptTerms === 'Y' || this.props.acceptTerms === 'yes' || this.props.acceptTerms === 'Yes') {
+				done();
+			} else {
+				this.env.error('You must accept the terms of the Craft license to run this generator.');
+			}
 		
-			done();
 		}.bind(this));
 	},
 
@@ -76,10 +74,10 @@ module.exports = yeoman.generators.Base.extend({
 		var done = this.async();
 
 		var options = {
-			url: 'http://download.buildwithcraft.com/craft/' + craftVersionMinor + '/' + craftVersion + '/' + craftZipFile,
+			url: craftUrl,
 			verbose: true,
 			encoding: null,
-			'remote-name': true
+			'output': craftZipFile
 		};
 
 		this.log('Downloading Craft CMS zip archive...');
@@ -114,7 +112,7 @@ module.exports = yeoman.generators.Base.extend({
 		var done = this.async();
 
 		var options = {
-			url: 'https://github.com/pixelandtonic/Parsedown/archive/master.zip',
+			url: parsedownUrl,
 			verbose: true,
 			encoding: null,
 			'remote-name': true

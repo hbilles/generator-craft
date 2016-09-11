@@ -1,10 +1,10 @@
 {
   "name": "generator-craft",
-  "version": "0.7.0",
-  "description": "A Craft CMS generator for Yeoman",
+  "version": "0.8.0",
+  "description": "A Craft CMS generator for Yeoman using Browserify",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "hbilles/generator-craft",
+  "repository": "hbilles/generator-craft-browserify",
   "author": {
     "name": "Hite Billes",
     "email": "",
@@ -21,11 +21,11 @@
     "Craft CMS"
   ],
   "dependencies": {
-    "chalk": "^1.0.0",
-    "curlrequest": ">=0.5.2",
-    "mkdirp": "^0.5.0",
-    "yeoman-generator": "^0.19.0",
-    "yosay": "^1.0.2"
+    "chalk": "^1.1.1",
+    "curlrequest": ">=0.5.6",
+    "mkdirp": "^0.5.1",
+    "yeoman-generator": "^0.22.5",
+    "yosay": "^1.1.0"
   },
   "devDependencies": {
     "mocha": "*"
